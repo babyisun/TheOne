@@ -1,0 +1,11 @@
+#.gitignore
+.idea
+rev
+dev
+build
+#config.js
+node_modules
+doc
+.DS_Store
+.vscode
+npm-debug.log
