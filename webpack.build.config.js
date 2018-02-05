@@ -26,13 +26,10 @@ const getEntry = function () {
 }
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
-// var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin; var
-// UglifyJsPlugin = webpack.optimize.UglifyJsPlugin var CommonsChunkPlugin =
-// require("CommonsChunkPlugin"); var UglifyJsPlugin =
-// require("UglifyJsPlugin"); var NoErrorsPlugin =
-// require("webpack/lib/NoErrorsPlugin"); var IgnorePlugin =
-// require("IgnorePlugin");
+const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
+const UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin");
+// var NoErrorsPlugin =require("webpack/lib/NoErrorsPlugin"); var IgnorePlugin
+// =require("IgnorePlugin");
 
 var config = {
     //devtool: "source-map",
@@ -41,7 +38,7 @@ var config = {
         //alias: _alias, extensions: ['', '.js', '.jsx']
     },
     output: {
-        path: path.join(__dirname, "dev" + js), //文件输出目录
+        path: path.join(__dirname, "build" + js), //文件输出目录
         //publicPath: "build" + js,
         filename: "[name].js"
     },
@@ -53,13 +50,15 @@ var config = {
             // inject: true, cache: true, time: +new Date()
         }),
         new ExtractTextPlugin({filename: "../css/[name].css"}),
-        // new IgnorePlugin(/\.\/jquery/), new CommonsChunkPlugin({     filename:
-        // "common.js",     name: "common" }) new NoErrorsPlugin() 		new
-        // CommonsChunkPlugin({ 			name: lib, 			minChunks: Infinity 		}) 		new
-        // UglifyJsPlugin({ 			compress: { 				warnings: false 			} 		})
+        // new IgnorePlugin(/\.\/jquery/), new NoErrorsPlugin()
+        new CommonsChunkPlugin("common.js"),
+        new UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
+        })
     ],
-    //watch:true, 
-    //debug:true,
+    //watch:true, debug:true,
     module: {
         rules: [
             {
@@ -80,13 +79,24 @@ var config = {
                 loader: `url-loader?limit=500&name=../images/[name].[ext]`
             }, {
                 test: /\.css$/,
-                loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader'})
+                loader: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: {
+                        loader: "css-loader",
+                        options: {
+                            minimize: true
+                        }
+                    }
+                })
             }, {
                 test: /\.scss$/,
                 use: ExtractTextPlugin.extract({
                     use: [
                         {
-                            loader: "css-loader"
+                            loader: "css-loader",
+                            options: {
+                                minimize: true
+                            }
                         }, {
                             loader: "sass-loader"
                         }
