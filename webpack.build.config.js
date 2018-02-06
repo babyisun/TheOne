@@ -1,10 +1,11 @@
-const fs = require("fs"),
+const webpack = require("webpack"),
+    fs = require("fs"),
     path = require("path"),
     _config = require('./config'),
     //_alias = require('../ReactUI/alias'),
     currentProject = "/" + _config.Current,
     js = currentProject + "/js/";
-    //lib = js + "lib/";
+//lib = js + "lib/";
 const getEntry = function () {
     var jsPath = path.resolve("src" + js);
     //console.log(jsPath);
@@ -25,10 +26,10 @@ const getEntry = function () {
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
-const UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin");
-// var NoErrorsPlugin =require("webpack/lib/NoErrorsPlugin"); var IgnorePlugin
-// =require("IgnorePlugin");
+const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin; //require("webpack/lib/optimize/CommonsChunkPlugin");
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin; //require("webpack/lib/optimize/UglifyJsPlugin");
+// var NoErrorsPlugin =require("webpack/lib/NoErrorsPlugin");
+const IgnorePlugin = webpack.IgnorePlugin;
 
 var config = {
     //devtool: "source-map",
@@ -42,14 +43,14 @@ var config = {
         filename: "[name].js?[hash:8]"
     },
     plugins: [
+        new IgnorePlugin(/\.\/jquery/),
         new HtmlWebpackPlugin({
             filename: "../index.html",
             template: __dirname + "/src" + currentProject + "/page/index.tmpl.html",
-            //hash: true,
-            // inject: true, cache: true, time: +new Date()
+            //hash: true, inject: true, cache: true, time: +new Date()
         }),
         new ExtractTextPlugin({filename: "../css/[name].css?[hash:8]"}),
-        // new IgnorePlugin(/\.\/jquery/), new NoErrorsPlugin()
+        //new NoErrorsPlugin()
         new CommonsChunkPlugin("common.js"),
         new UglifyJsPlugin({
             compress: {

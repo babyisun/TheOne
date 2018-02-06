@@ -1,11 +1,12 @@
 'use strict';
-const fs = require("fs"),
+const webpack = require("webpack"),
+    fs = require("fs"),
     path = require("path"),
     _config = require('./config'),
     //_alias = require('../ReactUI/alias'),
     currentProject = "/" + _config.Current,
     js = currentProject + "/js/";
-    //lib = js + "lib/";
+//lib = js + "lib/";
 const getEntry = function () {
     var jsPath = path.resolve("src" + js);
     //console.log(jsPath);
@@ -26,6 +27,8 @@ const getEntry = function () {
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ProvidePlugin = webpack.ProvidePlugin;
+const IgnorePlugin = webpack.IgnorePlugin;
 
 var config = {
     devtool: "source-map",
@@ -39,6 +42,8 @@ var config = {
         filename: "[name].js?[hash:8]"
     },
     plugins: [
+        new IgnorePlugin(/\.\/jquery/),
+        new ProvidePlugin({$: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery', 'window.$': 'jquery'}),
         new HtmlWebpackPlugin({
             filename: "../index.html",
             template: __dirname + "/src" + currentProject + "/page/index.tmpl.html",
