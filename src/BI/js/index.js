@@ -8,8 +8,8 @@ import Editor from "./component/Editor.js";
 import Explorer from "./component/Explorer.js";
 import Pad from "./component/Pad.js";
 import "./component/two2.js";
-// import "./plugin/gridstack.jQueryUI.js"
 // import "./plugin/gridstack.js";
+import "./plugin/gridstack.jQueryUI.js";
 
 
 class Home extends React.Component {

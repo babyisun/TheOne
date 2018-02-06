@@ -42,8 +42,8 @@ var config = {
         filename: "[name].js?[hash:8]"
     },
     plugins: [
-        //new IgnorePlugin(/\.\/jquery/),
-        new ProvidePlugin({$: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery', 'window.$': 'jquery'}),
+        new IgnorePlugin(/\.\/jquery/),
+        //new ProvidePlugin({$: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery', 'window.$': 'jquery'}),
         new HtmlWebpackPlugin({
             filename: "../index.html",
             template: __dirname + "/src" + currentProject + "/page/index.tmpl.html",
