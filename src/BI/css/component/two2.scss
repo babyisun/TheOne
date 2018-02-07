@@ -1,7 +1,3 @@
-#grid1 {
-    background: lightgoldenrodyellow;
-}
-
 #grid2 {
     background: lightcyan;
 }
@@ -74,18 +70,17 @@
     background: white;
     width: 100%;
     height: 20px;
-}
-
-.grid-stack-control-bar span {
-    background-color: white;
-    display: block;
-    float: left;
-    margin: 0 2px;
-    font-size: 14px;
+    span,
+    svg {
+        background-color: white;
+        display: block;
+        float: left;
+        margin: 0 2px;
+        font-size: 14px;
+    }
 }
 
 .select {
-
     float: none !important;
 }
 
@@ -101,14 +96,16 @@
 }
 
 /* add */
-.pad{
+
+.pad {
     padding-right: 100px;
     padding-left: 120px;
     padding-top: 40px;
     margin-right: auto;
     margin-left: auto;
 }
-.banner{
+
+.banner {
     background-color: #fff;
     position: fixed;
     top: 0;
@@ -116,13 +113,14 @@
     height: 40px;
     border-bottom: 2px solid #ccc;
     z-index: 1000;
+    span {
+        line-height: 16px;
+        padding: 5px 10px;
+        margin: 5px 5px;
+    }
 }
-.banner span{
-    line-height: 16px;
-    padding: 5px 10px;
-    margin: 5px 5px;
-}
-.bar-left{
+
+.bar-left {
     /* background-color: #ccc; */
     position: fixed;
     top: 40px;
@@ -130,25 +128,24 @@
     width: 110px;
     border-right: 1px solid #999;
 }
-.bar-right{
-    /* background-color: #ccc; */
+
+.bar-right {
     border: 1px solid #999;
     position: fixed;
-    top:45px;
+    top: 45px;
     right: 10px;
     width: 80px;
+    svg {
+        font-size: 29px;
+        margin: auto 5px;
+    }
 }
 
-.bar-right-line{
+.bar-right-line {
     margin: 10px 0;
 }
 
-.bar-right svg{
-    font-size: 29px;
-    margin: auto 5px;
-}
-
-.button{
+.button {
     line-height: 16px;
     border: 1px solid #999;
     border-radius: 5px;
@@ -156,9 +153,10 @@
     margin: 5px 5px;
 }
 
-.left{
+.left {
     float: left;
 }
-.right{
+
+.right {
     float: right;
 }
