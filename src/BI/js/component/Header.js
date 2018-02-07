@@ -17,7 +17,7 @@ export default class Header extends React.Component {
                 <span className="button right">退出</span>
                 <nav>
                     <Link to="/">Home</Link>
-                    <Link to="/pad/123">Pad</Link>
+                    <Link to="/pad">Pad</Link>
                 </nav>
             </div>
         );
