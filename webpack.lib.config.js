@@ -8,7 +8,7 @@ const NoEmitOnErrorsPlugin = webpack.NoEmitOnErrorsPlugin;
 
 var config = {
     entry: [
-        "./common/jquery-3.3.1.min.js", 
+        "./common/jquery-3.3.1.js", 
         "./common/bootstrap-3.3.7/js/bootstrap.min.js", 
         "./common/jquery-ui-1.12.1/jquery-ui.js", 
         "./common/jsfunction/jsfunction.js", 
