@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter, Link, Redirect, Route} from 'react-router-dom';
-// import {Router, Route, IndexRedirect, hashHistory, Link} from 'react-router';
+import {BrowserRouter, Link, Redirect, Route,HashRouter,history} from 'react-router-dom';
+//import {Router, Route, IndexRedirect, hashHistory} from 'react-router';
 import "../css/page/index.scss";
 import "../css/font/iconfont.css"
 import Header from "./component/Header.js";
@@ -22,8 +22,7 @@ class Home extends React.Component {
             <div>
                 <Header/>
                 <Editor/>
-                <Explorer/>
-                {this.props.children}
+                <Explorer/> {this.props.children}
                 {/* <Pad/>  */}
             </div>
         );
@@ -32,11 +31,17 @@ class Home extends React.Component {
 }
 
 ReactDOM.render((
-    <BrowserRouter>
+    <HashRouter history={history}>
         <div>
-            {/* <Home/> */}
             <Route path="/" component={Home}/>
             <Route path="/pad" component={Pad}/>
         </div>
-    </BrowserRouter>
+    </HashRouter>
 ), document.getElementById('app'));
+/* ReactDOM.render(
+    <Router history={hashHistory}>
+        <Route path="/" component={Home}/>
+        <Route path="/pad" component={Pad}/>
+    </Router>,
+    document.getElementById('app')
+); */
