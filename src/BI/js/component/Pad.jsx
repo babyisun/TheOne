@@ -1,18 +1,23 @@
-$(function () {
-
-    initial();
-
-    function initial() {
-        var screenH = $(window).height(),
-            screenW = $(window).width(),
-            barLeft = $('.bar-left'),
-            barRight = $('.bar-right');
-        barLeft.css('height', screenH - 40 + 'px');
-        barRight.css('height', screenH - 50 + 'px');
+import React from 'react';
+export default class Pad extends React.Component{
+    constructor(props) {
+        super(props);
     }
-})
+    render(){
+        return(
+            <div className="container-fluid pad">
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="grid-stack grid-stack-12" id="grid2"></div>
+                    </div>
+                </div>
+            </div>
+        )
+    }
 
-$(function () {
+    componentDidMount() {
+        console.info("componentDidMount:DOM已经加载完毕");
+        $(function () {
     var options = {
         width: 12,
         float: false,
@@ -20,7 +25,6 @@ $(function () {
         removeTimeout: 100,
         acceptWidgets: '.grid-stack-item'
     };
-    // $('#grid1').gridstack(options);
     $('#grid2').gridstack(_.defaults({
         float: true
     }, options));
@@ -30,33 +34,34 @@ $(function () {
             y: 0,
             width: 2,
             height: 2
-        },
-        {
-            x: 3,
-            y: 1,
-            width: 1,
-            height: 2
-        },
-        {
-            x: 4,
-            y: 1,
-            width: 1,
-            height: 1
-        },
-        {
-            x: 2,
-            y: 3,
-            width: 3,
-            height: 1
-        },
-        {
-            x: 2,
-            y: 5,
-            width: 1,
-            height: 1
+        // },
+        // {
+        //     x: 3,
+        //     y: 1,
+        //     width: 1,
+        //     height: 2
+        // },
+        // {
+        //     x: 4,
+        //     y: 1,
+        //     width: 1,
+        //     height: 1
+        // },
+        // {
+        //     x: 2,
+        //     y: 3,
+        //     width: 3,
+        //     height: 1
+        // },
+        // {
+        //     x: 2,
+        //     y: 5,
+        //     width: 1,
+        //     height: 1
         }
     ];
 
+    //initial gridstacks in the pat
     $('.grid-stack').each(function () {
         var grid = $(this).data('gridstack');
 
@@ -66,7 +71,8 @@ $(function () {
         }, this);
     });
 
-    $('.sidebar .grid-stack-item').draggable({
+    $('.bar-right-line .grid-stack-item').draggable({
+        helper: "clone",
         revert: 'invalid',
         handle: '.grid-stack-item-content',
         scroll: false,
@@ -135,3 +141,6 @@ $(function () {
     });
 
 });
+        
+    }
+}

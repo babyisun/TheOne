@@ -3,12 +3,11 @@ import ReactDOM from 'react-dom';
 import {BrowserRouter, Link, Redirect, Route,HashRouter,history} from 'react-router-dom';
 //import {Router, Route, IndexRedirect, hashHistory} from 'react-router';
 import "../css/page/index.scss";
-import "../css/font/iconfont.css"
-import Header from "./component/Header.js";
-import Editor from "./component/Editor.js";
-import Explorer from "./component/Explorer.js";
-import Pad from "./component/Pad.js";
-import "./component/two2.js";
+import "../css/font/iconfont.css";
+import Header from "./component/Header.jsx";
+import Editor from "./component/Editor.jsx";
+import Explorer from "./component/Explorer.jsx";
+import Pad from "./component/Pad.jsx";
 
 //import "./plugin/lodash.min.js";
 import "./plugin/gridstack.js";
@@ -26,6 +25,16 @@ class Home extends React.Component {
                 {/* <Pad/>  */}
             </div>
         );
+    }
+
+    componentDidMount() {
+        var screenH = $(window).height(),
+        screenW = $(window).width(),
+        barLeft = $('.bar-left'),
+        barRight = $('.bar-right');
+        barLeft.css('height', screenH - 40 + 'px');
+        barRight.css('height', screenH - 50 + 'px');
+        
     }
 
 }
