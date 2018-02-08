@@ -28,6 +28,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
+        //initial position
         var screenH = $(window).height(),
         screenW = $(window).width(),
         barLeft = $('.bar-left'),
