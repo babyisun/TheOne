@@ -43,7 +43,8 @@ var config = {
     },
     plugins: [
         new IgnorePlugin(/\.\/jquery/),
-        //new ProvidePlugin({$: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery', 'window.$': 'jquery'}),
+        // new ProvidePlugin({$: 'jquery', jQuery: 'jquery', 'window.jQuery': 'jquery',
+        // 'window.$': 'jquery'}),
         new HtmlWebpackPlugin({
             filename: "../index.html",
             template: __dirname + "/src" + currentProject + "/page/index.tmpl.html",
@@ -60,10 +61,12 @@ var config = {
                     loader: "babel-loader",
                     options: {
                         presets: [
-                            'es2015', 'react'
-                        ], //'stage-1',
-                        // plugins: ["transform-es3-member-expression-literals",
-                        // "transform-es3-property-literals"], compact: false
+                            'es2015', 'react', 'stage-1'
+                        ],
+                        plugins: [
+                            "transform-decorators-legacy"
+                        ],
+                        compact: false
                     }
                 },
                 exclude: /node_modules/
