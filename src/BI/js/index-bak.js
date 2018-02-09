@@ -13,11 +13,10 @@ import {myStore} from "./store/MyStore";
 //import {Router, Route, IndexRedirect, hashHistory} from 'react-router';
 import "../css/page/index.scss";
 import "../css/font/iconfont.css"
-import Header from "./component/Header.js";
-import Editor from "./component/Editor.js";
-import Explorer from "./component/Explorer.js";
-import Pad from "./component/Pad.js";
-import "./component/two2.js";
+import Header from "./component/Header.jsx";
+import Editor from "./component/Editor.jsx";
+import Explorer from "./component/Explorer.jsx";
+import Pad from "./component/Pad.jsx";
 
 //import "./plugin/lodash.min.js";
 import "./plugin/gridstack.js";

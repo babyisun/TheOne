@@ -27,6 +27,7 @@ const getEntry = function () {
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 const ProvidePlugin = webpack.ProvidePlugin;
 const IgnorePlugin = webpack.IgnorePlugin;
 
@@ -50,7 +51,8 @@ var config = {
             template: __dirname + "/src" + currentProject + "/page/index.tmpl.html",
             //hash: true, inject: true, cache: true, time: +new Date()
         }),
-        new ExtractTextPlugin({filename: "../css/[name].css?[hash:8]"})
+        new ExtractTextPlugin({filename: "../css/[name].css?[hash:8]"}),
+        new CommonsChunkPlugin("common")
     ],
     //watch:true, debug:true,
     module: {

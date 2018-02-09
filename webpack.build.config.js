@@ -26,8 +26,8 @@ const getEntry = function () {
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin; //require("webpack/lib/optimize/CommonsChunkPlugin");
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin; //require("webpack/lib/optimize/UglifyJsPlugin");
+const CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
+const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 // var NoErrorsPlugin =require("webpack/lib/NoErrorsPlugin");
 const IgnorePlugin = webpack.IgnorePlugin;
 
@@ -51,7 +51,7 @@ var config = {
         }),
         new ExtractTextPlugin({filename: "../css/[name].css?[hash:8]"}),
         //new NoErrorsPlugin()
-        new CommonsChunkPlugin("common.js"),
+        new CommonsChunkPlugin("common"),
         new UglifyJsPlugin({
             compress: {
                 warnings: false
@@ -67,10 +67,11 @@ var config = {
                     loader: "babel-loader",
                     options: {
                         presets: [
-                            'es2015', 'react'
-                        ], //'stage-1',
-                        // plugins: ["transform-es3-member-expression-literals",
-                        // "transform-es3-property-literals"], compact: false
+                            'es2015', 'react', 'stage-1'
+                        ],
+                        plugins: [
+                            "transform-decorators-legacy"
+                        ],
                     }
                 },
                 exclude: /node_modules/
