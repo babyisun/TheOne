@@ -11,12 +11,12 @@ import {
 //import {Router, Route, IndexRedirect, hashHistory} from 'react-router';
 import "../css/page/index.scss";
 import "../css/font/iconfont.css";
+import Login from "./component/Login.jsx";
 import Header from "./component/Header.jsx";
 import Sider from "./component/Sider.jsx";
 import Editor from "./component/Editor.jsx";
 import Explorer from "./component/Explorer.jsx";
 import Pad from "./component/Pad.jsx";
-
 
 //import "./plugin/lodash.min.js";
 import "./plugin/gridstack.js";
@@ -46,12 +46,9 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        //initial position
-        // var screenH = $(window).height(),
-        //     screenW = $(window).width(),
-        //     barLeft = $('.bar-left'),
-        //     barRight = $('.bar-right');
-        // barLeft.css('height', screenH - 40 + 'px');
+        // initial position var screenH = $(window).height(),     screenW =
+        // $(window).width(),     barLeft = $('.bar-left'),     barRight =
+        // $('.bar-right'); barLeft.css('height', screenH - 40 + 'px');
         // barRight.css('height', screenH - 50 + 'px');
 
     }
@@ -61,8 +58,10 @@ class App extends React.Component {
 ReactDOM.render((
     <HashRouter history={history}>
         <div>
-            <Route path="/" component={App}/>
+            {/* <Redirect to={"login"}/> */}
+            <Route exact path="/" component={App}/>
             <Route path="/pad" component={Pad}/>
+            <Route exact path="/login" component={Login}/>
         </div>
     </HashRouter>
 ), document.getElementById('app'));

@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Link, Redirect, Route} from 'react-router-dom';
+import {BrowserRouter, Link, Redirect, Route, NavLink} from 'react-router-dom';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -15,7 +15,7 @@ export default class Header extends React.Component {
                 <nav className="nav" role="navigation">
                     <ul className="navlist">
                         <li>
-                            <Link to="getting-started" activeClassName="active">Docs</Link>
+                            <NavLink to="getting-started" activeClassName="active">Docs</NavLink>
                         </li>
                         <li>
                             <a href="http://www.itbbb.com/jsfunction/jsfunction.html" target="_blank">JSFunction</a>
@@ -29,12 +29,12 @@ export default class Header extends React.Component {
                     </ul>
                     <ul className="navlist navlist-right">
                         <li>
-                            <Link to="about" activeClassName="active">About Us</Link>
+                            <NavLink to="about" activeClassName="active">About Us</NavLink>
                         </li>
                     </ul>
                 </nav>
             </header>
-           
+
         );
     }
 }

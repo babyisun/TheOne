@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, Route} from 'react-router-dom';
+import {Link, Route,NavLink} from 'react-router-dom';
 import "../plugin/scrollbar";
 import "../plugin/gotop";
 
@@ -10,11 +10,11 @@ export default class Sider extends React.Component {
             {
                 name: "快速开始",
                 class: "btn-hide",
-                url: "/getting-started"
+                url: "/"
             },
             {
                 name: "基础组件",
-                url: "/base",
+                url: "/pad",
                 son: [
                     {name: "AutoComplete", url: "/auto-complete"},
                     {name: "FreeCheckBox", url: "/free-check-box"},
@@ -97,18 +97,18 @@ export default class Sider extends React.Component {
                     this.menu.map((item, i) => {
                         return (
                             <div key={i}>
-                                <Link to={item.url}
+                                <NavLink to={item.url}
                                       className={`primary ${item.son ? 'btn-toggle' : ''} ${item.class ? item.class : ''}`}
                                       activeClassName="active"
-                                >{item.name}</Link>
+                                >{item.name}</NavLink>
                                 <div className={`toggle-list`}>
                                     {
                                         item.son && item.son.map((r, j)=> {
                                             return (
-                                                <Link key={j} to={item.url+r.url} activeClassName="active">
+                                                <NavLink key={j} to={item.url+r.url} activeClassName="active">
                                                     {r.name}
                                                     {r.icon ? <i className={`re-site-icon re-site-icon-${r.icon}`}></i> : ''}
-                                                </Link>);
+                                                </NavLink>);
                                         })
                                     }
                                 </div>
