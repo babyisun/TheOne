@@ -1,4 +1,4 @@
-import {Ajax, CODE} from "./AJAX";
+import { Ajax, CODE } from "./AJAX";
 import Domain from "./Domain";
 
 const USERCOOKIE = $
@@ -15,7 +15,7 @@ export const ROOTURL = PROTOCOL + host;
 //站点地址;
 export const SITEURL = ROOTURL + "/lms025/";
 //API地址
-export const ACTION = ROOTURL + "/lms/";
+export const ACTION = PROTOCOL + "biapi.cig.com.cn/";
 
 /* export class AJAX {
 

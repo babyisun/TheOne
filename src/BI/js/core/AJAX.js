@@ -36,7 +36,8 @@ export class Ajax {
                 else if (data.code == CODE.NOLOGIN) {
                     location.href = data.url;
                 } else {
-                    $.alert(data.msg, 2000, error);
+                    // $.alert(data.msg, 2000, error);
+                    alert(data.msg);
                 }
             },
             error: error
@@ -59,7 +60,8 @@ export class Ajax {
                 else if (data.code == CODE.NOLOGIN) {
                     location.href = data.url;
                 } else {
-                    $.alert(data.msg, 2000, error);
+                    //$.alert(data.msg, 2000, error);
+                    alert(data.msg);
                 }
             },
             error: error

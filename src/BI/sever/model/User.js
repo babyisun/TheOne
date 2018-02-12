@@ -38,9 +38,9 @@ var User = sequelize.define(
 
 // sequelize.sync()
 //     .then(() => User.create({
-//         UserName: 'zhangzhichao',
+//         UserName: '1',
 //         Mobile: '123214343',
-//         Password: generateHash('123213'),
+//         Password: '2',
 //         Role: 1,
 //         Status: 3
 //     }))
