@@ -8,7 +8,7 @@ $top-btn-color: rgb(15, 3, 3);
 $input-focus:#fff;
 $login-btn:#38f;
 $login-icon:#927882;
-$login-theme-color:#c00c23;
+$error:#eb7988;
 body {
   position: relative;
   color: $base-color;
@@ -62,7 +62,7 @@ body {
         font-size: 14px;
         height: 26px;
         text-align: center;
-        color: $login-btn;
+        color: $error;
       }
       .input-container {
         position: relative;

@@ -15,8 +15,6 @@ export default class Login extends React.Component {
     }
 
     login() {
-        this.props.history.push("/");
-        return;
         let _this = this,_userName=$("#inputUsername").val(),_password = $("#inputPassword").val();
         _this.setState({
             error: _userName == '' ? '用户名不能为空':(_password == '' ? '密码不能为空':''),
@@ -27,7 +25,7 @@ export default class Login extends React.Component {
                     _this.setState({
                         error:'',
                     },()=>{
-                        hashHistory.push('pad');
+                        this.props.history.push("/");
                     });
                 }else if(data.code == CODE.ERROR){
                     _this.setState({
