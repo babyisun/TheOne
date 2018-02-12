@@ -1,6 +1,7 @@
 
 import Router from 'koa-router'
 import fs from 'fs'
+import User from '../model/User'
 
 export const router = app => {
     const router = new Router()
@@ -9,44 +10,26 @@ export const router = app => {
         await ctx.render('index')
     })
 
-    router.get('/formpost', async ctx => {
-        await ctx.render('formpost')
-    })
+    router.post('/login', async ctx => {
+        let _username = ctx.request.body.username
+        console.log(_username)
 
-    router.post('/postdate', async ctx => {
-        let zzc = ctx.request.body
-        let json = JSON.stringify(zzc)
-        let date = ctx.query
-        console.log(date)
-        console.log(json)
-        ctx.body = { "code": 201, "msg": date.name, "url": "" }
-        
-        // let zzc = ctx.request.body,
-        //     json = JSON.stringify(zzc);
-        // console.log(json);
-        // ctx.body = json
+        let user = await User.findOne({
+            'where' : {
+                'UserName' : _username
+            }
+        })
 
-        // let _json = { "code": 201, "msg": json.qwe, "url": "" };
-        // ctx.response.type = 'json';
-        // ctx.body = _json;
-        // fs.writeFile('./zzc.json', JSON.stringify(zzc), function (err) {
-        //     if (err) {
-        //         console.log(err)
-        //     } else {
-        //         console.log('suuccess')
-        //     }
-        // })
-        //ctx.response.redirect('/getdata')
-    })
+        if(user !== null){
+            console.log('找到了')
+        }else{
+            console.log('没有这个用户')
+        }
 
-    router.get('/getdata', async ctx => {
-        // let zzc = fs.readFileSync('./zzc.json','utf-8')
-        // await ctx.render('getdata',{
-        //     zzc : zzc
-        // })
-        let json = { "code": 201, "msg": "\u4e0d\u5b58\u5728\u7528\u6237\uff01", "url": "" };
-        ctx.response.type = 'json';
-        ctx.body = json;
+        console.log(user.dataValues)
+
+        //console.log('1111',user[0].dataValues)
+        //ctx.body = { "code": 'CODE.SUCCESS' }
     })
 
     app.use(router.routes())
