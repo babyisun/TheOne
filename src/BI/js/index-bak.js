@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import ReactDOM from 'react-dom';
 import {
     BrowserRouter,
@@ -32,7 +32,6 @@ class Home extends React.Component {
                 <Header/>
                 <Editor/>
                 <Explorer/> {this.props.children}
-                {/* <Pad/>  */}
                 <div
                     style={{
                     position: "absolute",
@@ -59,10 +58,4 @@ ReactDOM.render((
         </div>
     </HashRouter>
 ), document.getElementById('app'));
-/* ReactDOM.render(
-    <Router history={hashHistory}>
-        <Route path="/" component={Home}/>
-        <Route path="/pad" component={Pad}/>
-    </Router>,
-    document.getElementById('app')
-); */
+ */

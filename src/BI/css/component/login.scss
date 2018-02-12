@@ -3,10 +3,10 @@ $login-bg:#0c070a;
 $light: #fff;
 $body-bg: #020102;
 $logo-bg: #c3092f;
-$content-color: #58464d;
-$top-btn-color: #21100d;
-$input-focus:#775b66;
-$login-btn:#c2092f;
+$content-color:#ccc;
+$top-btn-color: rgb(15, 3, 3);
+$input-focus:#fff;
+$login-btn:#38f;
 $login-icon:#927882;
 $login-theme-color:#c00c23;
 body {
@@ -137,6 +137,7 @@ body {
         }
         &:hover {
           color: $light;
+          background: lighten($login-btn, 2%);
         }
       }
     }
