@@ -8,7 +8,7 @@ export default class Editor extends React.Component{
     
     render(){
         return(
-            <div className="bar-right">
+            <div className="editor bar-right">
             <div className="bar-right-line">
                 <div className="grid-stack-item icon-block" data-gs-width="1" data-gs-height="2">
                     <div className="grid-stack-item-content">

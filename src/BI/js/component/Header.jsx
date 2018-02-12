@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter, Link, Redirect, Route} from 'react-router-dom';
+import {BrowserRouter, Link, Redirect, Route, NavLink} from 'react-router-dom';
 
 export default class Header extends React.Component {
     constructor(props) {
@@ -7,19 +7,34 @@ export default class Header extends React.Component {
     }
     render() {
         return (
-            <div className="banner">
-                <span className="iconfont icon-pie-chart left"></span>
-                <span className="left">BI 系统</span>
-                <span className="button left">当前项目</span>
-                <span className="button left">全部项目</span>
-                <span className="button left">皮肤</span>
-                <span className="button right">保存</span>
-                <span className="button right">退出</span>
-                <nav>
-                    <Link to="/">Home</Link>
-                    <Link to="/pad">Pad</Link>
+            <header className="header">
+                <Link className="logo" to="/">BI 系统</Link>
+                <button className="btn-menu">
+                    <span className="menu-icon"></span>
+                </button>
+                <nav className="nav" role="navigation">
+                    <ul className="navlist">
+                        <li>
+                            <NavLink to="getting-started" activeClassName="active">Docs</NavLink>
+                        </li>
+                        <li>
+                            <a href="http://www.itbbb.com/jsfunction/jsfunction.html" target="_blank">JSFunction</a>
+                        </li>
+                        <li>
+                            <a href="https://react-bootstrap.github.io/components.html" target="_blank">Bootstrap</a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/reacteasyui/ReactEasyUI" target="_blank">GitHub</a>
+                        </li>
+                    </ul>
+                    <ul className="navlist navlist-right">
+                        <li>
+                            <NavLink to="about" activeClassName="active">About Us</NavLink>
+                        </li>
+                    </ul>
                 </nav>
-            </div>
+            </header>
+
         );
     }
 }
