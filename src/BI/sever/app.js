@@ -11,7 +11,7 @@ const host = process.env.HOST || '127.0.0.1'
 
 const r = url => resolve(__dirname,url)
 const app = new Koa()
-const MIDDLEWARES = ['router']
+const MIDDLEWARES = ['database','router']
 
 const userMiddlewares = app => {
     return R.map(R.compose(
