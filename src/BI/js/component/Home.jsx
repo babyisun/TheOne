@@ -8,7 +8,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <div>
-                <h3>Home</h3>
+                <h3>一张报表，从心开始</h3>
             </div>
         );
     }

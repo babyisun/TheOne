@@ -15,21 +15,15 @@ export default class Header extends React.Component {
                 <nav className="nav" role="navigation">
                     <ul className="navlist">
                         <li>
-                            <NavLink to="getting-started" activeClassName="active">Docs</NavLink>
+                            <NavLink to="getting-started" activeClassName="active">当前项目</NavLink>
                         </li>
                         <li>
-                            <a href="http://www.itbbb.com/jsfunction/jsfunction.html" target="_blank">JSFunction</a>
-                        </li>
-                        <li>
-                            <a href="https://react-bootstrap.github.io/components.html" target="_blank">Bootstrap</a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/reacteasyui/ReactEasyUI" target="_blank">GitHub</a>
+                            <a href="http://www.itbbb.com/jsfunction/jsfunction.html" target="_blank">保存</a>
                         </li>
                     </ul>
                     <ul className="navlist navlist-right">
                         <li>
-                            <NavLink to="about" activeClassName="active">About Us</NavLink>
+                            <NavLink to="about" activeClassName="active">退出</NavLink>
                         </li>
                     </ul>
                 </nav>

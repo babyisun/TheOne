@@ -1,7 +1,7 @@
 export default {
 	database: 'bi',
     username: 'root',
-    password: 'kobe241298',
+    password: '123456',
     host: 'localhost',
-    port: 3306
+    port: 3307
 }

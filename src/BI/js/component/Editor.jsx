@@ -12,6 +12,54 @@ export default class Editor extends React.Component{
             <div className="bar-right-line">
                 <div className="grid-stack-item icon-block" data-gs-width="1" data-gs-height="2">
                     <div className="grid-stack-item-content">
+                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-line-chart"></use></svg>
+                    </div>
+                </div>
+                <div className="grid-stack-item icon-block" data-gs-width="2" data-gs-height="2">
+                    <div className="grid-stack-item-content">
+                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-bar-chart"></use></svg>
+                    </div>
+                </div>
+            </div>
+            <div className="bar-right-line">
+                <div className="grid-stack-item icon-block" data-gs-width="1" data-gs-height="2">
+                    <div className="grid-stack-item-content">
+                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-pie-chart"></use></svg>
+                    </div>
+                </div>
+                <div className="grid-stack-item icon-block" data-gs-width="2" data-gs-height="2">
+                    <div className="grid-stack-item-content">
+                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-scatter"></use></svg>
+                    </div>
+                </div>
+            </div>
+            <div className="bar-right-line">
+                <div className="grid-stack-item icon-block" data-gs-width="1" data-gs-height="2">
+                    <div className="grid-stack-item-content">
+                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-funnel"></use></svg>
+                    </div>
+                </div>
+                <div className="grid-stack-item icon-block" data-gs-width="2" data-gs-height="2">
+                    <div className="grid-stack-item-content">
+                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-property"></use></svg>
+                    </div>
+                </div>
+            </div>
+            <div className="bar-right-line">
+                <div className="grid-stack-item icon-block" data-gs-width="1" data-gs-height="2">
+                    <div className="grid-stack-item-content">
+                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-map"></use></svg>
+                    </div>
+                </div>
+                <div className="grid-stack-item icon-block" data-gs-width="2" data-gs-height="2">
+                    <div className="grid-stack-item-content">
+                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-data"></use></svg>
+                    </div>
+                </div>
+            </div>
+            <div className="bar-right-line">
+                <div className="grid-stack-item icon-block" data-gs-width="1" data-gs-height="2">
+                    <div className="grid-stack-item-content">
                     <svg className="icon grid-stack-item ui-draggable" aria-hidden="true"><use xlinkHref="#icon-title"></use></svg>
                     </div>
                 </div>
@@ -66,54 +114,6 @@ export default class Editor extends React.Component{
                 <div className="grid-stack-item icon-block" data-gs-width="2" data-gs-height="2">
                     <div className="grid-stack-item-content">
                     <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-table"></use></svg>
-                    </div>
-                </div>
-            </div>
-            <div className="bar-right-line">
-                <div className="grid-stack-item icon-block" data-gs-width="1" data-gs-height="2">
-                    <div className="grid-stack-item-content">
-                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-line-chart"></use></svg>
-                    </div>
-                </div>
-                <div className="grid-stack-item icon-block" data-gs-width="2" data-gs-height="2">
-                    <div className="grid-stack-item-content">
-                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-bar-chart"></use></svg>
-                    </div>
-                </div>
-            </div>
-            <div className="bar-right-line">
-                <div className="grid-stack-item icon-block" data-gs-width="1" data-gs-height="2">
-                    <div className="grid-stack-item-content">
-                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-pie-chart"></use></svg>
-                    </div>
-                </div>
-                <div className="grid-stack-item icon-block" data-gs-width="2" data-gs-height="2">
-                    <div className="grid-stack-item-content">
-                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-scatter"></use></svg>
-                    </div>
-                </div>
-            </div>
-            <div className="bar-right-line">
-                <div className="grid-stack-item icon-block" data-gs-width="1" data-gs-height="2">
-                    <div className="grid-stack-item-content">
-                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-funnel"></use></svg>
-                    </div>
-                </div>
-                <div className="grid-stack-item icon-block" data-gs-width="2" data-gs-height="2">
-                    <div className="grid-stack-item-content">
-                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-property"></use></svg>
-                    </div>
-                </div>
-            </div>
-            <div className="bar-right-line">
-                <div className="grid-stack-item icon-block" data-gs-width="1" data-gs-height="2">
-                    <div className="grid-stack-item-content">
-                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-map"></use></svg>
-                    </div>
-                </div>
-                <div className="grid-stack-item icon-block" data-gs-width="2" data-gs-height="2">
-                    <div className="grid-stack-item-content">
-                    <svg className="icon" aria-hidden="true"><use xlinkHref="#icon-data"></use></svg>
                     </div>
                 </div>
             </div>

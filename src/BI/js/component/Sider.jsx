@@ -8,83 +8,39 @@ export default class Sider extends React.Component {
         super(props);
         this.menu = [
             {
-                name: "快速开始",
+                name: "首页",
                 class: "btn-hide",
                 url: "/"
             },
             {
-                name: "基础组件",
+                name: "财务报表",
                 url: "/pad",
                 son: [
-                    {name: "AutoComplete", url: "/auto-complete"},
-                    {name: "FreeCheckBox", url: "/free-check-box"},
-                    {name: "TextWithCount", url: "/text-with-count"},
-                    {name: "DelIconInput", url: "/del-icon-input"},
-                    {name: "SwitchBtn", url: "/switch-btn"},
-                    {name: "Counter", url: "/counter"},
-                    {name: "Element", url: "/element"}
+                    {name: "收入", url: "/auto-complete"},
+                    {name: "支出", url: "/free-check-box"},
                 ]
             },
             {
-                name: "日期与时间组件",
+                name: "运营报表",
                 url: "/date",
                 son: [
-                    {name: "DateRangePicker", url: "/date-range-picker", icon: "pc"},
-                    {name: "DateChooser", url: "/date-chooser", icon: "pc"},
-                    {name: "Calender", url: "/calender"},
-                    {name: "AppCalender", url: "/app-calender", icon: "mobile"},
-                    {name: "Schedule", url: "/schedule"},
-                    {name: "Timer", url: "/timer"}
+                    {name: "登录情况", url: "/date-range-picker", icon: "pc"},
+                    {name: "统计分析", url: "/date-chooser", icon: "pc"},
                 ]
             },
             {
-                name: "列表组件",
+                name: "行政报表",
                 url: "/list",
                 son: [
-                    {name: "Table", url: "/table", icon: "pc"}
+                    {name: "考勤", url: "/table", icon: "pc"}
                 ]
             },
             {
-                name: "图表组件",
-                url: "/echarts",
-                class: "btn-hide",
-                son: [
-                    {name: "Pie", url: "/pie"},
-                    {name: "Gauge", url: "/gauge"},
-                    {name: "PieAndLineChart", url: "/pie-and-line-chart"},
-                    {name: "PieWithLabel", url: "/pie-with-label"},
-                    {name: "Scatter", url: "/scatter"},
-                    {name: "Line", url: "/line"},
-                    {name: "SimpleBar", url: "/simple-bar"},
-                    {name: "VerticalBar", url: "/vertical-bar"},
-                    {name: "HorizontalBar", url: "/horizontal-bar"},
-                    {name: "MultipleBar", url: "/multiple-bar"},
-                    {name: "LineAndPopupChart", url: "/line-and-popup-chart"},
-                    {name: "MapChart", url: "/map-chart"},
-                    {name: "DoubleYLineChart", url: "/double-y-line-chart"}
-                ]
-            },
-            {
-                name: "进度与比例图组件",
-                url: "/progress",
-                son: [
-                    {name: "ProgressChart", url: "/progress-chart"},
-                    {name: "ProgressBar", url: "/progress-bar"},
-                    {name: "Compare", url: "/compare"},
-                    {name: "Ring", url: "/ring"},
-                    {name: "PieChart", url: "/pie-chart"},
-                    {name: "Loading", url: "/loading"},
-                    {name: "Progress", url: "/progress"},
-                    {name: "Venn", url: "/venn"},
-                    {name: "Overlap", url: "/overlap"}
-                ]
-            },
-            {
-                name: "其它组件",
+                name: "其它",
                 url: "/others",
                 son: [
-                    {name: "AudioPlay", url: "/audio-play"},
-                    {name: "IframeLoad", url: "/iframe-load"}
+                    {name: "行为分析", url: "/audio-play"},
+                    {name: "行业洞察", url: "/iframe-load"}
                 ]
             },
         ];
