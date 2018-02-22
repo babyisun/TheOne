@@ -2,6 +2,8 @@ import React from "react";
 import {Link, Route,NavLink} from 'react-router-dom';
 import "../plugin/scrollbar";
 import "../plugin/gotop";
+import "../plugin/jquery.contextmenu";
+import "../../css/plugin/jquery.contextmenu.css";
 
 export default class Sider extends React.Component {
     constructor(props) {
@@ -54,14 +56,14 @@ export default class Sider extends React.Component {
                         return (
                             <div key={i}>
                                 <NavLink to={item.url}
-                                      className={`primary ${item.son ? 'btn-toggle' : ''} ${item.class ? item.class : ''}`}
+                                      className={`btn-project primary ${item.son ? 'btn-toggle' : ''} ${item.class ? item.class : ''}`}
                                       activeClassName="active"
                                 >{item.name}</NavLink>
                                 <div className={`toggle-list`}>
                                     {
                                         item.son && item.son.map((r, j)=> {
                                             return (
-                                                <NavLink key={j} to={item.url+r.url} activeClassName="active">
+                                                <NavLink className="btn-page" key={j} to={item.url+r.url} activeClassName="active">
                                                     {r.name}
                                                     {r.icon ? <i className={`re-site-icon re-site-icon-${r.icon}`}></i> : ''}
                                                 </NavLink>);
@@ -78,5 +80,25 @@ export default class Sider extends React.Component {
 
     componentDidMount() {
         $('.sider').scrollbar();
+        $('.btn-project').contextPopup({
+            title: '项目',
+            items: [
+              {label:'预览',action:()=>{ alert('clicked 1') } },
+              null,
+              {label:'添加',icon:'icons/application-monitor.png',action:()=> { alert('clicked 4') } },
+              {label:'删除',icon:'icons/bin-metal.png',action:()=> { alert('clicked 5') } },
+              {label:'重命名',icon:'icons/magnifier-zoom-actual-equal.png', action:()=> { alert('clicked 6') } }
+            ]
+        });
+        $('.btn-page').contextPopup({
+            title: '页面',
+            items: [
+              {label:'预览',action:()=> { alert('clicked 1') } },
+              {label:'隐藏',icon:'icons/shopping-basket.png',action:()=> { alert('clicked 1') } },
+              null,
+              {label:'删除',icon:'icons/bin-metal.png',action:()=> { alert('clicked 5') } },
+              {label:'重命名',icon:'icons/magnifier-zoom-actual-equal.png', action:()=> { alert('clicked 6') } }
+            ]
+        });
     }
 }

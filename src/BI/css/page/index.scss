@@ -48,11 +48,12 @@
   background: $white;
   box-shadow: 0 1px 0 rgba($black, .05), 0 1px 3px rgba($black, .1);
   width: 100%;
-  a {
+  a,span {
     display: block;
     color: inherit;
     line-height: 50px;
     text-decoration: none;
+    float: left;
   }
 }
 

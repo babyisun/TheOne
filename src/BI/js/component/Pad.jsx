@@ -1,4 +1,8 @@
 import React from 'react';
+import {observer} from "mobx-react";
+import {myStore} from "../store/MyStore";
+
+@observer
 export default class Pad extends React.Component {
     constructor(props) {
         super(props);
@@ -10,6 +14,12 @@ export default class Pad extends React.Component {
                 <div className="row">
                     <div className="col-md-12">
                         <div className="grid-stack grid-stack-12" id="grid2">hello world!</div>
+                        <div className="test">{myStore.number}</div>
+                        <div className="test">{myStore.getNumberLength}</div>
+                        <button
+                            onClick={() => {
+                            myStore.setNumber(Math.random())
+                        }}>Click</button>
                     </div>
                 </div>
             </div>

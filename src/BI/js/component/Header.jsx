@@ -23,6 +23,7 @@ export default class Header extends React.Component {
                     </ul>
                     <ul className="navlist navlist-right">
                         <li>
+                            <span>欢迎，North</span>
                             <NavLink to="about" activeClassName="active">退出</NavLink>
                         </li>
                     </ul>
