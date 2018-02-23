@@ -18,13 +18,21 @@ export default class Home extends React.Component {
         console.info("componentDidMount:DOM已经加载完毕");
         var options = {
             width: 12,
-            //height: 1,
             float: false,
             //removable: '.trash', removeTimeout: 100,
             acceptWidgets: '.grid-stack-item'
         };
         $('#grid').gridstack(_.defaults({
             float: true
-        }, options));
+        }, options))
+            .on('change', function (event, items) {
+                console.log(items);
+                var serializedData = _.map($('.grid-stack > .grid-stack-item:visible'), function (el) {
+                    el = $(el);
+                    var node = el.data('_gridstack_node');
+                    return node;//{x: node.x, y: node.y, width: node.width, height: node.height};
+                }, this);
+                console.log(serializedData);
+            });;
     }
 }
