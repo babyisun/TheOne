@@ -580,22 +580,22 @@
 
 @media (min-width: 768px) {
   .content {
-    padding-left: 80px;
-    padding-right: 80px;
+    padding: 10px 20px;
+    //padding-right: 20px;
     .about {
-      margin-left: -80px;
-      margin-right: -80px;
+      margin: -10px -20px;
+      //margin-right: -20px;
     }
   }
 }
 
 @media (max-width: 767px) {
   .content {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 5px 10px;
+    //padding-right: 10px;
     .about {
-      margin-left: -20px;
-      margin-right: -20px;
+      // margin-left: -10px;
+      // margin-right: -10px;
     }
     .table-params {
       border: 0;

@@ -16,7 +16,7 @@ import Login from "./component/Login.jsx";
 import Header from "./component/Header.jsx";
 import Sider from "./component/Sider.jsx";
 import Home from "./component/Home.jsx";
-import Editor from "./component/Editor.jsx";
+import Tools from "./component/Tools.jsx";
 import Explorer from "./component/Explorer.jsx";
 import Pad from "./component/Pad.jsx";
 
@@ -38,11 +38,8 @@ class App extends React.Component {
                             {this.props.children}
                         </div>
                     </div>
-                    <Editor/>
+                    <Tools />
                 </div>
-                {/* <Editor/>
-                <Explorer/>
-                <Pad/>  */}
             </div>
         );
     }
