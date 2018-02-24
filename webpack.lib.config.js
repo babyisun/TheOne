@@ -8,11 +8,11 @@ const NoEmitOnErrorsPlugin = webpack.NoEmitOnErrorsPlugin;
 
 var config = {
     entry: [
-        "./common/jquery-3.3.1.js", 
-        "./common/bootstrap-3.3.7/js/bootstrap.min.js", 
-        "./common/jquery-ui-1.12.1/jquery-ui.js", 
-        "./common/jsfunction/jsfunction.js", 
-        "./common/css.js"
+        "./lib/jquery-3.3.1.js", 
+        "./lib/bootstrap-3.3.7/js/bootstrap.min.js", 
+        "./lib/jquery-ui-1.12.1/jquery-ui.js", 
+        "./lib/jsfunction/jsfunction.js", 
+        "./lib/css.js"
     ],
     /*  {
         jquery: "./common/jquery-3.3.1.min.js",
@@ -21,7 +21,7 @@ var config = {
         jsfunction: "./common/jsfunction/jsfunction.js"
     }, */
     output: {
-        path: path.join(__dirname, "lib/"), //文件输出目录
+        path: path.join(__dirname, "lib/common/"), //文件输出目录
         filename: "lib.js"
     },
     plugins: [
