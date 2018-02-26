@@ -11,7 +11,8 @@ import {
 } from 'react-router-dom';
 //import {Router, Route, IndexRedirect, hashHistory} from 'react-router';
 import "../css/page/index.scss";
-import "../css/font/iconfont.css";
+// import "../css/font/iconfont.css";
+import Font from '../css/font/iconfont.js'
 import Login from "./component/Login.jsx";
 import Header from "./component/Header.jsx";
 import Sider from "./component/Sider.jsx";
