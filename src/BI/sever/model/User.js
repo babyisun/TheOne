@@ -1,45 +1,58 @@
 import Sequelize from 'sequelize'
 import sequelize from '../database'
-import bcrypt from 'bcryptjs'
+import crypto from 'crypto'
+
+const md5 = crypto.createHash('md5')
 
 var User = sequelize.define('user', {
-    'UserName': {
-        'type': Sequelize.STRING,
-        'initialAutoIncrement ': true
+    'UserID': {
+        type: Sequelize.BIGINT(11),
+        autoIncrement: true, 
+        primaryKey : true, 
+        unique : true
+    },
+    'OpenID': {
+        type: Sequelize.STRING(50),
+        primaryKey : true, 
     },
     'Mobile': {
-        'type': Sequelize.STRING,
-        'allowNull': false
+        type: Sequelize.STRING(50),
+        allowNull: false
     },
     'Password': {
-        'type': Sequelize.STRING,
-        'allowNull': false
+        type: Sequelize.STRING(50),
+        allowNull: false,
+        set : function(val){
+            this.setDataValue('Password',md5.update(val).digest('hex'))
+        }
     },
     'Role': {
-        'type': Sequelize.INTEGER,
-        'allowNull': false
+        type: Sequelize.INTEGER(50),
+        allowNull: false
     },
     'Status': {
-        'type': Sequelize.INTEGER
+        'type': Sequelize.INTEGER(50)
     }
-}, {
-    instanceMethods: {
-        generateHash(Password) {
-            return bcrypt.hash(Password, bcrypt.genSaltSync(8));
-        },
-        validPassword(Password) {
-            return bcrypt.compare(Password, this.password);
-        }
-    }
+},
+{
+    timestamps: true,
+    underscored: true,
+    paranoid: true,
+    freezeTableName: true,
+    tableName: 'user',
+    charset: 'utf8',
+    collate: 'utf8_general_ci'
 })
-/*
+
+//sequelize.sync({ alter: true })
+
 sequelize.sync()
     .then(() => User.create({
-        UserName: '1',
-        Mobile: '123214343',
-        Password: '2',
+        OpenID : '213ss123',
+        Mobile: '22343324',
+        Password: '12213123ss',
         Role: 1,
-        Status: 3
-    })) */
+        Status: 5
+    })) 
 
 module.exports = User

@@ -2,7 +2,11 @@
 import Router from 'koa-router'
 import fs from 'fs'
 import User from '../model/User'
+import Project from '../model/Project'
+import Page from '../model/Page'
+import Option from '../model/Option'
 import { CODE } from '../util/const'
+import crypto from 'crypto'
 
 export const router = app => {
     const router = new Router()
@@ -14,8 +18,7 @@ export const router = app => {
     router.post('/login', async ctx => {
         let _username = ctx.request.body.username
         let _password = ctx.request.body.password
-        console.log('user',_username)
-        console.log('psd',_password)
+        let verifysign = crypto.createHash('md5').update(_password, 'utf8').digest("hex")
 
         let user = await User.findOne({
             'where' : {
@@ -25,7 +28,7 @@ export const router = app => {
 
         if(user !== null){
             console.log('找到了')
-            if(_password === user.Password){
+            if(verifysign === user.Password){
                 console.log('登录成功')
                 ctx.body = {'code': CODE.SUCCESS}
             }else{
