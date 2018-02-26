@@ -1,5 +1,5 @@
 import React from 'react';
-import Font from '../../css/font/iconfont.js'
+
 export default class Tools extends React.Component {
     constructor(props) {
         super(props);

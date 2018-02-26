@@ -2,16 +2,58 @@ import React from 'react';
 import {Link, Redirect, Route} from 'react-router-dom';
 import Chart from "./Chart.jsx";
 import "../../css/component/main.scss";
+import Components from "../core/components";
 
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
+        this.components = [
+            {
+                name: "Chart",
+                data: {
+                    xAxis: {
+                        type: 'category',
+                        data: ['Mon', 'Tue']
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            data: [
+                                820, 932
+                            ],
+                            type: 'line'
+                        }
+                    ]
+                }
+            }, {
+                name: "Pie",
+                width: "400",
+                height: "200"
+            }, {
+                name: "Table",
+                width: "400",
+                height: "200"
+            }
+        ];
     }
     render() {
         return (
             <div id="grid" className="grid-stack grid-stack-12">
                 <h3>一张报表，从心开始</h3>
-                <Chart
+                {this
+                    .components
+                    .map((item, index) => {
+                        //console.log(item + index);
+
+                    })
+}
+                {Components.getComponent("Chart", {
+                    name: "why",
+                    age: 10
+                })}
+                {/* <Chart
                     option={{
                     xAxis: {
                         type: 'category',
@@ -42,7 +84,7 @@ export default class Home extends React.Component {
                             type: 'line'
                         }
                     ]
-                }}/>
+                }}/> */}
             </div>
         );
     }
@@ -66,7 +108,8 @@ export default class Home extends React.Component {
                     return node; //{x: node.x, y: node.y, width: node.width, height: node.height};
                 }, this);
                 console.log(serializedData);
-            }).on('gsresizestop', function(event, ui) {
+            })
+            .on('gsresizestop', function (event, ui) {
                 var grid = this;
                 var element = event.target;
                 console.log(element);
