@@ -55,6 +55,11 @@ jQuery.fn.contextPopup = function(menuData) {
           icon.attr('src', item.icon);
           icon.insertBefore(row.find('span'));
         }
+        if(item.iconClass){
+          var iconClass= $('<em>');
+          iconClass.attr('class', item.iconClass);
+          iconClass.insertBefore(row.find('span'));
+        }
         row.find('span').text(item.label);
         if (item.action) {
           row.find('a').click(function(){ item.action(e); });
