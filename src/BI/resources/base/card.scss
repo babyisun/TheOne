@@ -1,0 +1,43 @@
+/*
+* @Author: lihongmin
+* @Date:   2018-02-26 11:15:36
+* @Last Modified by:   lihongmin
+* @Last Modified time: 2018-02-27 11:32:29
+*/
+$Pwidth:15px;
+$col_bg:#fff;
+@mixin title{
+    position: relative;
+    display: inline-block;
+    padding:10px;
+    width:100%;
+    border-bottom:1px solid #ddd;
+    line-height:1.42857143;
+    h3{
+        font-weight: normal;font-size: 16px;display:inline-block;margin:0;
+    }
+}
+.row{
+    margin-top:-$Pwidth;margin-right:-$Pwidth;
+    .title{
+        @include title;
+        .btn{
+            padding:0 5px;border:0;float:right;
+            &:hover{
+                color: #fff;cursor: default;
+            }
+        }
+    }
+}
+.col-md-3{
+    background-color:$col_bg;
+    margin-left:$Pwidth;padding:0;margin-bottom:$Pwidth;
+    p{color: #666;padding:0 15px;}
+}
+.col-6{width:50%;}
+.number{font-size: 36px;padding-top:20px;color: #626669;font-weight: normal;padding-left:$Pwidth;font-family: "微软雅黑"}
+.fright{float:right;color: #1c86ca;}
+
+
+
+

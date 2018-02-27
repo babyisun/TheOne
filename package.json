@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/BI/sever/start",
-    "data": "nodemon src/BI/sever/insertdata",
+    "data": "node src/BI/sever/insertdata",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack",
     "watch": "webpack -w",
