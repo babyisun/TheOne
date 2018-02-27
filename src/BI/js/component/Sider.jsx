@@ -83,11 +83,11 @@ export default class Sider extends React.Component {
         $('.btn-project').contextPopup({
             title: '项目',
             items: [
-              {label:'预览',action:()=>{ alert('clicked 1') } },
+              {label:'预览',iconClass :"icon-funnel",action:()=>{ alert('clicked 1') } },
               null,
-              {label:'添加',icon:'icons/application-monitor.png',action:()=> { alert('clicked 4') } },
-              {label:'删除',icon:'icons/bin-metal.png',action:()=> { alert('clicked 5') } },
-              {label:'重命名',icon:'icons/magnifier-zoom-actual-equal.png', action:()=> { alert('clicked 6') } }
+              {label:'添加',iconClass :"icon-map",action:()=> { alert('clicked 4') } },
+              {label:'删除',iconClass:'icon-bar-chart',action:()=> { alert('clicked 5') } },
+              {label:'重命名',iconClass:'icon-scatter', action:()=> { alert('clicked 6') } }
             ]
         });
         $('.btn-page').contextPopup({

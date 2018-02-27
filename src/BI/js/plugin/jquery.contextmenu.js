@@ -79,7 +79,7 @@ jQuery.fn.contextPopup = function(menuData) {
       .show();
     
     var left = e.pageX + 5,  //nudge to the right, so the pointer is covering the title 
-        top = e.pageY-25;
+        top = e.pageY-30;
 
     if (top + menu.height() >= $(window).height()) {
         top -= menu.height();
