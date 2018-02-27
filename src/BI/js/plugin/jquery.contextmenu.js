@@ -55,6 +55,12 @@ jQuery.fn.contextPopup = function(menuData) {
           icon.attr('src', item.icon);
           icon.insertBefore(row.find('span'));
         }
+        if(item.iconClass){
+          // var iconClass= $('<em>');
+          // iconClass.attr('class', item.iconClass);
+          var icon='<svg class="icon" aria-hidden="true"><use xlink:href="#'+item.iconClass+'"></use></svg>';
+          $(icon).insertBefore(row.find('span'));
+        }
         row.find('span').text(item.label);
         if (item.action) {
           row.find('a').click(function(){ item.action(e); });
@@ -72,15 +78,12 @@ jQuery.fn.contextPopup = function(menuData) {
     var menu = createMenu(e)
       .show();
     
-    var left = e.pageX + 5, /* nudge to the right, so the pointer is covering the title */
-        top = e.pageY;
+    var left = e.pageX + 5,  //nudge to the right, so the pointer is covering the title 
+        top = e.pageY-25;
+
     if (top + menu.height() >= $(window).height()) {
         top -= menu.height();
     }
-    if (left + menu.width() >= $(window).width()) {
-        left -= menu.width();
-    }
-
     // Create and show menu
     menu.css({zIndex:1000001, left:left, top:top})
       .bind('contextmenu', function() { return false; });
