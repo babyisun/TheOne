@@ -26,10 +26,10 @@ export class Ajax {
             type: "GET",
             url: this.Action + url,
             data: data,
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
+            // xhrFields: {
+            //     withCredentials: true
+            // },
+            // crossDomain: true,
             success: function (data) {
                 if (!data) 
                     return;
@@ -54,10 +54,10 @@ export class Ajax {
             type: "POST",
             url: this.Action + url,
             data: data,
-            xhrFields: {
-                withCredentials: true
-            },
-            crossDomain: true,
+            // xhrFields: {
+            //     withCredentials: true
+            // },
+            // crossDomain: true,
             success: function (data) {
                 if (!data) 
                     return;
