@@ -6,7 +6,7 @@ import Option from '../model/Option'
 import { STATUS } from './const'
 
 // 插入user数据
-async function insertuserdata(open_id='12345',mobile='131111133333',password='123456',role=1,status=3){
+async function insertuserdata(open_id='12345',mobile='131111133333',password='1',role=1,status=3){
     let auser = await User.create({
         OpenID : open_id,
         Mobile: mobile,

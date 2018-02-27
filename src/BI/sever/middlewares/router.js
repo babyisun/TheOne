@@ -6,6 +6,7 @@ import Project from '../model/Project'
 import Page from '../model/Page'
 import Option from '../model/Option'
 import { CODE } from '../util/const'
+import { STATUS } from '../util/const'
 import crypto from 'crypto'
 
 export const router = app => {
@@ -14,6 +15,10 @@ export const router = app => {
     router.get('/', async ctx => {
         await ctx.render('index')
     })
+
+    /**
+     *   Login
+     */
 
     router.post('/login', async ctx => {
         // ctx.set('Cache-Control','no-cache')
@@ -63,6 +68,10 @@ export const router = app => {
         console.log('success')
     })
 
+    /**
+     *   Project add rename delete
+     */
+
     router.post('/addproject', async ctx => {
         let name = ctx.request.body.name
         let uid  = ctx.request.body.uid
@@ -74,10 +83,47 @@ export const router = app => {
 
         project.save()
 
-        ctx.redirect('/')
+        ctx.body = {'code': CODE.SUCCESS,msg:"成功添加项目"}
     })
 
-    router.post('/save_page', async ctx => {
+    router.post('/renameproject', async ctx => {
+        let newname = ctx.request.body.name 
+        let projectID = ctx.request.body.projectID
+
+        Project.update({
+            Name : newname
+        },{
+            'where' : {
+                'ProjectID' : projectID
+            }
+        })
+        ctx.body = {'code': CODE.SUCCESS,msg:"名字更新成功"}
+    })
+
+    router.post('/deleteproject', async ctx => {
+        let projectID = ctx.request.body.projectID
+        // Project.destroy({
+        //     'where' : {
+        //         'ProjectID' : projectID
+        //     }
+        // })
+
+        Project.update({
+            Status : STATUS.DELETE
+        },{
+            'where' : {
+                'ProjectID' : projectID
+            }
+        })
+
+        ctx.body = {'code': CODE.SUCCESS,msg:"成功删除"}
+    })
+
+    /**
+     *   Page add rename delete
+     */
+
+    router.post('/addpage', async ctx => {
         let projectID = ctx.request.body.projectID
         let name = ctx.request.body.name
 
@@ -88,7 +134,40 @@ export const router = app => {
 
         project.save()
 
-        ctx.redirect('/')
+        ctx.body = {'code': CODE.SUCCESS,msg:"成功添加页面"}
+    })
+
+    router.post('/renamepage', async ctx => {
+        let newname = ctx.request.body.name 
+        let pageID = ctx.request.body.pageID
+
+        Page.update({
+            Name : newname
+        },{
+            'where' : {
+                'PageID' : pageID
+            }
+        })
+        ctx.body = {'code': CODE.SUCCESS,msg:"成功更新页面名字"}
+    })
+
+    router.post('/deletepage', async ctx => {
+        let pageID = ctx.request.body.pageID
+        // Page.destroy({
+        //     'where' : {
+        //         'PageID' : pageID
+        //     }
+        // })
+
+        Page.update({
+            Status : STATUS.DELETE
+        },{
+            'where' : {
+                'PageID' : pageID
+            }
+        })
+
+        ctx.body = {'code': CODE.SUCCESS,msg:"成功删除页面"}
     })
 
     app.use(router.routes())

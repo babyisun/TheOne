@@ -5,11 +5,12 @@ import Page from './Page'
 var Option = sequelize.define('option', {
     'OptionID': {
         type: Sequelize.BIGINT(11),
+        primaryKey : true, 
+        unique : true
     },
     'PageID': {
         type: Sequelize.BIGINT(11),
         field: 'PageID',
-        unique: true, 
         references: {
           model: 'Page',
           key: 'PageID'

@@ -11,7 +11,6 @@ var Page = sequelize.define('page', {
     'ProjectID': {
         type: Sequelize.BIGINT(11),
         field: 'ProjectID',
-        unique: true, 
         references: {
           model: 'Project',
           key: 'ProjectID'
