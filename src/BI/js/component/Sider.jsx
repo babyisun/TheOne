@@ -1,9 +1,12 @@
 import React from "react";
 import {Link, Route,NavLink} from 'react-router-dom';
 import "../plugin/scrollbar";
-import "../plugin/gotop";
 import "../plugin/jquery.contextmenu";
 import "../../css/plugin/jquery.contextmenu.css";
+
+import ProjectModal from './ProjectModal.jsx'
+
+
 
 export default class Sider extends React.Component {
     constructor(props) {
@@ -74,6 +77,7 @@ export default class Sider extends React.Component {
                         );
                     })
                 }
+                <ProjectModal />
             </div>
         );
     }

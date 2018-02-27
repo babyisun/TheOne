@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link, Redirect, Route} from 'react-router-dom';
+import "../plugin/gotop";
 import Chart from "./Chart.jsx";
 import "../../css/component/main.scss";
 import Components from "../core/components";

@@ -3,6 +3,7 @@ import Koa from 'koa'
 import { resolve } from 'path'
 import statics from 'koa-static'
 import views from 'koa-views'
+//import cors from 'koa2-cors'
 import bodyParser from 'koa-bodyparser'
 import R from 'ramda'
 
@@ -28,6 +29,7 @@ async function start (){
         extension: 'pug'
     }))
     app.use(bodyParser())
+    //app.use(cors())
 
     await userMiddlewares(app)(MIDDLEWARES)
 
