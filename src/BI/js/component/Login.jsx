@@ -25,7 +25,7 @@ export default class Login extends React.Component {
             AJAX.post('login', { username: _userName, password: _password }, (data) => {
                 console.log(data);
                 if (data.code == CODE.SUCCESS) {
-                    $.cookie.set("uid", data.data);
+                    $.cookie.set("uid", data.data,"","","cig.com.cn");
                     _this.setState({
                         error: '',
                     }, () => {
