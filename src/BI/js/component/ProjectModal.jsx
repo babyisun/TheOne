@@ -11,7 +11,7 @@ export default class ProjectModal extends React.Component {
     }
 
     onSubmit() {
-        let _this = this, form = $(".project_form"),json=form.serializeArray();
+        let _this = this, form = $(".project_form"),json=AJAX.toJson(form.serializeArray());
         json.uid=$.cookie.get("uid");
         console.log(json);
         AJAX.post('addproject', json, (data) => {

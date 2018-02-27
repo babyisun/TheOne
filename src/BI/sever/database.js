@@ -4,7 +4,7 @@ import config from './config'
 var sequelize = new Sequelize(config.database, config.username, config.password, {
     host: config.host,
     dialect: 'mysql',
-    //port: config.port,
+    port: config.port,
     pool: {
         max: 5,
         min: 0,
