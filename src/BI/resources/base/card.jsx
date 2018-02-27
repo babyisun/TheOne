@@ -44,15 +44,15 @@ export default class Card extends React.Component {
                 //console.log(1);
                 this.state.data.map((item, i) => {
                     return (
-                        <div key={i} className="col-3" data-gs-height="2">
+                        <div key={i} className="col-md-3" data-gs-height="2">
                             <div className="title">
                                 <h3>{item.title}</h3>
-                                <span className="btn bg-primary">单位：元</span>
+                                <span className="btn bg-primary">{item.unit}</span>
                             </div>
-                            <div className="number">40886,200</div>
+                            <div className="number">{item.number}</div>
                             <p>
-                                净现值
-                        <span className="fright">98%</span>
+                                {item.subtitle}
+                                <span className="fright">{item.rate}</span>
                             </p>
                         </div>)
                 })
