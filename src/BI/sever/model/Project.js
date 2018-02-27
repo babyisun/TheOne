@@ -18,7 +18,7 @@ var Project = sequelize.define('project', {
           key: 'UserID'
         },
     },
-    'Nmae': {
+    'Name': {
         type: Sequelize.STRING(50),
         allowNull: false
     },

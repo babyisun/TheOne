@@ -46,13 +46,27 @@ var User = sequelize.define('user', {
 
 //sequelize.sync({ alter: true })
 
-sequelize.sync()
-    .then(() => User.create({
-        OpenID : '213ss123',
-        Mobile: '22343324',
-        Password: '12213123ss',
-        Role: 1,
-        Status: 5
-    })) 
+// sequelize.sync()
+//     .then(() => User.create({
+//         UserID : 1,
+//         OpenID : '213ss123',
+//         Mobile: '22343324',
+//         Password: '12213123ss',
+//         Role: 1,
+//         Status: 5
+//     })) 
+
+// async function insertdata(){
+//     let auser = await User.create({
+//         OpenID : 'xxxxxxxxxxx',
+//         Mobile: '22343324',
+//         Password: '12213123ss',
+//         Role: 1,
+//         Status: 5
+//     })
+//     console.log(auser)
+// }
+
+// insertdata()
 
 module.exports = User

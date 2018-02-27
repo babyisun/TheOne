@@ -10,3 +10,4 @@ doc
 .vscode
 npm-debug.log
 yarn-error.log
+src/BI/sever/config

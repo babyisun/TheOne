@@ -22,15 +22,28 @@ export const router = app => {
 
         let user = await User.findOne({
             'where' : {
-                'UserName' : _username
+                'UserID' : _username
             }
         })
-
+        
         if(user !== null){
             console.log('找到了')
             if(verifysign === user.Password){
                 console.log('登录成功')
-                ctx.body = {'code': CODE.SUCCESS}
+                ctx.body = {'code': CODE.SUCCESS,data:_username}
+                /* ctx.cookies.set(
+                    'username',
+                    _username.toString(),
+                    {
+                        domain: '.cig.com.cn',  
+                        path: '/',
+                        maxAge: 10 * 60 * 1000,
+                        expires: new Date('2018-02-30'),
+                        httpOnly: false,
+                        overwrite: false
+                    }
+                ) */
+                console.log(ctx.cookies.get("username"));
             }else{
                 console.log('登录失败')
                 ctx.body = {'code': CODE.ERROR, msg:"用户名或密码错误"}
@@ -44,6 +57,36 @@ export const router = app => {
 
         //console.log('1111',user[0].dataValues)
         //ctx.body = { "code": 'CODE.SUCCESS' }
+
+        console.log('22222222222222','success')
+    })
+
+    router.post('/addproject', async ctx => {
+        //let projectID = ctx.request.body.projectID
+        console.log(ctx.cookies.get('uid'))
+        let name = ctx.request.body.name
+
+        let project = new Project({
+            Name : name
+        })
+
+        project.save()
+
+        ctx.redirect('/')
+    })
+
+    router.post('/save_page', async ctx => {
+        let projectID = ctx.request.body.projectID
+        let name = ctx.request.body.name
+
+        let project = new Project({
+            ProjectID : projectID,
+            Name : name
+        })
+
+        project.save()
+
+        ctx.redirect('/')
     })
 
     app.use(router.routes())
