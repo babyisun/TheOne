@@ -11,3 +11,13 @@ export const RESPONSE = {
     data: null,
     msg: "成功"
 }
+
+export const STATUS = {
+    DELETE: -1, //删除
+    DISABLE: 0, //停用
+    SAVE: 1, //保存
+}
+
+export const TYPE_ITEM = {
+    PAGE: "page", //页面位置信息
+}
