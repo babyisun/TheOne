@@ -16,6 +16,8 @@ export const router = app => {
     })
 
     router.post('/login', async ctx => {
+        // ctx.set('Cache-Control','no-cache')
+        // ctx.set('Access-Control-Allow-Origin','*')
         let _username = ctx.request.body.username
         let _password = ctx.request.body.password
         let verifysign = crypto.createHash('md5').update(_password, 'utf8').digest("hex")
@@ -43,7 +45,7 @@ export const router = app => {
                         overwrite: false
                     }
                 ) */
-                console.log(ctx.cookies.get("username"));
+                //console.log(ctx.cookies.get("username"));
             }else{
                 console.log('登录失败')
                 ctx.body = {'code': CODE.ERROR, msg:"用户名或密码错误"}
@@ -58,15 +60,15 @@ export const router = app => {
         //console.log('1111',user[0].dataValues)
         //ctx.body = { "code": 'CODE.SUCCESS' }
 
-        console.log('22222222222222','success')
+        console.log('success')
     })
 
     router.post('/addproject', async ctx => {
-        //let projectID = ctx.request.body.projectID
-        console.log(ctx.cookies.get('uid'))
         let name = ctx.request.body.name
-
+        let uid  = ctx.request.body.uid
+        console.log('11111111111111',ctx.request.body)
         let project = new Project({
+            UserId : uid,
             Name : name
         })
 

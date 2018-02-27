@@ -3,5 +3,5 @@ export default {
     username: 'root',
     password: '123456',
     host: 'localhost',
-    port: 3307
+    port: 3306
 }
