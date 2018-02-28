@@ -2,8 +2,8 @@ import Sequelize from 'sequelize'
 import Project from '../model/Project'
 import Page from '../model/Page'
 import User from '../model/User'
-import { CODE } from '../util/const'
-import { STATUS } from '../util/const'
+import { CODE,STATUS } from '../util/const'
+
 
 /*!
  *
@@ -16,7 +16,6 @@ import { STATUS } from '../util/const'
 
     try{
         let uid  = ctx.request.body.uid
-        let pids = []
 
         let project = await Project.findAll({
             'where' : {
@@ -30,7 +29,6 @@ import { STATUS } from '../util/const'
 
         
         ctx.body = {'code': CODE.SUCCESS,msg:"成功找到项目",data:project}
-        //ctx.body = project
     }catch (err) {
         console.log('查询项目出错',err)
     }

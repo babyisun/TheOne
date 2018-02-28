@@ -6,6 +6,7 @@ import "../../css/plugin/jquery.contextmenu.css";
 
 import ProjectModal from './ProjectModal.jsx'
 import {modalStore} from "../store/ModalStore";
+import { AJAX } from '../core/b'
 
 export default class Sider extends React.Component {
     constructor(props) {
@@ -48,13 +49,13 @@ export default class Sider extends React.Component {
                 ]
             },
         ];
-        this.state.menu=null;
+        //this.state.menu=null;
     }
 
     // componentWillMount(){
     //     let _this=this;
-    //     AJAX.post("",{},, (data) => {
-    //         _this.setState({menu：data.data});
+    //     AJAX.post("getproject",{uid: 1}, data => {
+    //         console.log('111111111111111111',data)
     //     });
     // }
 
