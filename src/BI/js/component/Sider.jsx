@@ -103,11 +103,11 @@ export default class Sider extends React.Component {
         $('.btn-page').contextPopup({
             title: '页面',
             items: [
-              {label:'预览',action:()=> { alert('clicked 1') } },
-              {label:'隐藏',icon:'icons/shopping-basket.png',action:()=> { alert('clicked 1') } },
+              {label:'预览',iconClass :"icon-preview",action:()=> { alert('clicked 1') } },
+              {label:'隐藏',iconClass:'icon-invisable',action:()=> { alert('clicked 1') } },
               null,
-              {label:'删除',icon:'icons/bin-metal.png',action:()=> { alert('clicked 5') } },
-              {label:'重命名',icon:'icons/magnifier-zoom-actual-equal.png', action:()=> { alert('clicked 6') } }
+              {label:'删除',iconClass:'icon-delete',action:()=> { alert('clicked 5') } },
+              {label:'重命名',iconClass:'icon-rename', action:()=> { alert('clicked 6') } }
             ]
         });
     }
