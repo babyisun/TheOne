@@ -43,6 +43,7 @@ var Page = sequelize.define('page', {
     collate: 'utf8_general_ci'
 })
 
+
 //sequelize.sync({ alter: true })
 
 
@@ -50,7 +51,7 @@ var Page = sequelize.define('page', {
 //add Page
 
 //Project.hasOne(Page)
-//Page.belongsTo(Project)
+Page.belongsTo(Project, {foreignKey: 'ProjectID'})
 
 // sequelize.sync()
 //     .then(() => Page.create({

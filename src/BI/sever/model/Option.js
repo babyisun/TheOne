@@ -26,6 +26,10 @@ var Option = sequelize.define('option', {
           key: 'PageID'
         },
     },
+    'ItemID': {
+        type: Sequelize.BIGINT(11),
+        allowNull: false
+    },
     'Type': {
         type: Sequelize.STRING(50),
         allowNull: false
@@ -60,6 +64,7 @@ var Option = sequelize.define('option', {
 //     .then(() => Option.create({
 //         OptionID: 1,
 //         PageID : 1,
+//         ItemID : 1,
 //         Type: 'page',
 //         Key: '不知道',
 //         Value: {"name": "zhangzhichao"},
