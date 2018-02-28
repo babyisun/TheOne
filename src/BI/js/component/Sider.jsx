@@ -48,7 +48,15 @@ export default class Sider extends React.Component {
                 ]
             },
         ];
+        this.state.menu=null;
     }
+
+    // componentWillMount(){
+    //     let _this=this;
+    //     AJAX.post("",{},, (data) => {
+    //         _this.setState({menu：data.data});
+    //     });
+    // }
 
     render() {
         return (

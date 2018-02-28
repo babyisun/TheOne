@@ -23,8 +23,7 @@ import { STATUS } from '../util/const'
             }
         })
 
-        ctx.body = {'code': CODE.SUCCESS,msg:"成功找到页面"}
-        ctx.body = page
+        ctx.body = {'code': CODE.SUCCESS,msg:"成功找到页面",data:page}
     }catch (err) {
         console.log('查询页面出错',err)
     }

@@ -3,6 +3,13 @@ import Option from '../model/Option'
 import { CODE } from '../util/const'
 import { STATUS,TYPE_ITEM } from '../util/const'
 
+/*!
+ *
+ option get add delete
+ *
+ zzc
+ */
+
 exports.get = async ctx => {
     try {
         let pageId = ctx.request.body.pageId
@@ -14,8 +21,7 @@ exports.get = async ctx => {
             }
         })
 
-        ctx.body = {'code': CODE.SUCCESS,msg:"成功找到配置"}
-        ctx.body = option
+        ctx.body = {'code': CODE.SUCCESS,msg:"成功找到配置",data:option}
     }catch(err){
         console.log('查找配置出错',err)
     }

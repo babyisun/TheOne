@@ -29,8 +29,8 @@ import { STATUS } from '../util/const'
         })
 
         
-        ctx.body = {'code': CODE.SUCCESS,msg:"成功找到项目"}
-        ctx.body = project
+        ctx.body = {'code': CODE.SUCCESS,msg:"成功找到项目",data:project}
+        //ctx.body = project
     }catch (err) {
         console.log('查询项目出错',err)
     }

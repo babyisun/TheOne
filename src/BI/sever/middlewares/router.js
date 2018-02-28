@@ -20,7 +20,7 @@ export const router = app => {
     router.post('/login', User.login)
 
     /**
-     *   Project add rename delete
+     *   Project get add rename delete
      */
     router.post('/getproject', Project.get)
     router.post('/addproject', Project.add)
@@ -29,7 +29,7 @@ export const router = app => {
     
 
     /**
-     *   Page add rename delete
+     *   Page get add rename delete
      */
     router.post('/getpage', Page.get)
     router.post('/addpage', Page.add)
@@ -37,7 +37,7 @@ export const router = app => {
     router.post('/deletepage', Page.delete)
 
     /**
-     *   Option add rename delete
+     *   Option get add delete
      */
     router.post('/getoption', Option.get)
     router.post('/addoption', Option.add)
