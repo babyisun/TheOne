@@ -17,7 +17,7 @@ export default class Modals extends React.Component {
     }
 
     onClose() {
-        this.setState({show: false});
+        //this.setState({show: false});
         if (this.props.onClose) {
             this
                 .props
@@ -60,5 +60,9 @@ export default class Modals extends React.Component {
                 </BS.Modal.Footer>
             </BS.Modal>
         )
+    }
+
+    componentWillReceiveProps(props) {
+        this.setState({show: props.show});
     }
 }

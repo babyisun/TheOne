@@ -4,7 +4,10 @@ import { AJAX } from '../core/b';
 import { CODE } from '../core/AJAX';
 import Modals from '../plugin/Modals.jsx';
 
+import {observer} from "mobx-react";
+import {modalStore} from "../store/ModalStore";
 
+@observer
 export default class ProjectModal extends React.Component {
     constructor(props) {
         super(props);
@@ -17,7 +20,7 @@ export default class ProjectModal extends React.Component {
         AJAX.post('addproject', json, (data) => {
             console.log(data);
             if (data.code == CODE.SUCCESS) {
-                
+                $.alert(data.msg);
             } else if (data.code == CODE.ERROR) {
                
             }
@@ -26,7 +29,11 @@ export default class ProjectModal extends React.Component {
 
     render() {
         return (
-            <Modals title="创建项目" show={true} onSubmit={this.onSubmit.bind(this)}>
+            <Modals title="创建项目" 
+            show={modalStore.projectModal_Show} 
+            onSubmit={this.onSubmit.bind(this)}
+            onClose={()=>modalStore.setProjectModal_Show(false)}
+            >
                 <div className="form_container">
                     <form className="form-horizontal project_form">
                         <div className="form-group">

@@ -19,7 +19,7 @@ var Project = sequelize.define('project', {
         primaryKey : true, 
         unique : true
     },
-    'UserId': { 
+    'UserID': { 
         type: Sequelize.BIGINT(11), 
         field: 'UserID',
         references: {
