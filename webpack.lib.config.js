@@ -12,6 +12,7 @@ var config = {
         "./lib/bootstrap-3.3.7/js/bootstrap.min.js", 
         "./lib/jquery-ui-1.12.1/jquery-ui.js", 
         "./lib/jsfunction/jsfunction.js", 
+        "./lib/jQueryFn.js", 
         "./lib/css.js"
     ],
     /*  {
