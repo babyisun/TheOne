@@ -60,6 +60,7 @@ var User = sequelize.define('user', {
 
 // sequelize.sync()
 //     .then(() => User.create({
+//         UserID : 1,
 //         OpenID : '213ss123',
 //         Mobile: '22343324',
 //         Password: '1',

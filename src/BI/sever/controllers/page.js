@@ -1,4 +1,5 @@
-
+import Sequelize from 'sequelize'
+import Project from '../model/Project'
 import Page from '../model/Page'
 import { CODE } from '../util/const'
 import { STATUS } from '../util/const'
@@ -9,6 +10,30 @@ import { STATUS } from '../util/const'
  *
  zzc
  */
+
+ exports.get = async ctx => {
+
+    try {
+        let pageId = ctx.request.body.pageId
+
+        let page = await Page.findAll({
+            'where' : {
+                'PageId' : pageId
+            }
+        })
+
+        let projects = await Page.findAll({
+            include: [{
+                model: Project,
+                where: { ProjectID: Sequelize.col(page.ProjectID) }
+            }]
+        })
+
+        ctx.body = projects
+    }catch (err) {
+        console.log('查询页面出错',err)
+    }
+ }
 
 exports.add = async ctx => {
     try{
