@@ -58,6 +58,7 @@ export default class Sider extends React.Component {
                         return (
                             <div key={i}>
                                 <NavLink to={item.url}
+                                      data={item.url}
                                       className={`btn-project primary ${item.son ? 'btn-toggle' : ''} ${item.class ? item.class : ''}`}
                                       activeClassName="active"
                                 >{item.name}</NavLink>
@@ -65,9 +66,9 @@ export default class Sider extends React.Component {
                                     {
                                         item.son && item.son.map((r, j)=> {
                                             return (
-                                                <NavLink className="btn-page" key={j} to={item.url+r.url} activeClassName="active">
-                                                    {r.name}
+                                                <NavLink data={r.url} className="btn-page" key={j} to={item.url+r.url} activeClassName="active">
                                                     {r.icon ? <i className={`re-site-icon re-site-icon-${r.icon}`}></i> : ''}
+                                                    {r.name}
                                                 </NavLink>);
                                         })
                                     }
@@ -95,7 +96,7 @@ export default class Sider extends React.Component {
                 {label:'预览',iconClass :"icon-preview",action:()=>{ alert('clicked 1') } },
                 {label:'发布',iconClass :"icon-publish",action:()=>{ alert('clicked 1') } },
                 null,
-                {label:'添加页面',iconClass :"icon-add",action:()=> { alert('clicked 4') } },
+                {label:'添加页面',iconClass :"icon-add",action:(e)=> { console.log(e.target.getAttribute("data")) } },
                 {label:'删除项目',iconClass:'icon-delete',action:()=> { alert('clicked 5') } },
                 {label:'重命名',iconClass:'icon-rename', action:()=> { alert('clicked 6') } }
               ]

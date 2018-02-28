@@ -10,32 +10,11 @@ export default class Home extends React.Component {
         super(props);
         this.components = [
             {
-                name: "Chart",
-                data: {
-                    xAxis: {
-                        type: 'category',
-                        data: ['Mon', 'Tue']
-                    },
-                    yAxis: {
-                        type: 'value'
-                    },
-                    series: [
-                        {
-                            data: [
-                                820, 932
-                            ],
-                            type: 'line'
-                        }
-                    ]
-                }
+                name: "Card"
             }, {
-                name: "Pie",
-                width: "400",
-                height: "200"
+                name: "Line"
             }, {
-                name: "Table",
-                width: "400",
-                height: "200"
+                name: "Pie"
             }
         ];
     }
@@ -45,15 +24,11 @@ export default class Home extends React.Component {
                 <h3>一张报表，从心开始</h3>
                 {this
                     .components
-                    .map((item, index) => {
+                    .map((item, i) => {
                         //console.log(item + index);
-
+                        return <div key={i}>{Components.getComponent(item.name, {})}</div>
                     })
 }
-                {Components.getComponent("Chart", {
-                    name: "why",
-                    age: 10
-                })}
                 {/* <Chart
                     option={{
                     xAxis: {
