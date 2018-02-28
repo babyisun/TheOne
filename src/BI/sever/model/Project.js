@@ -1,6 +1,16 @@
 import Sequelize from 'sequelize'
 import sequelize from '../database'
 import User from './User'
+import { STATUS } from '../util/const'
+
+/*!
+ *
+ project 表的建立
+ *
+ ProjectID UserId Name Status
+ * 
+ zzc
+ */
 
 var Project = sequelize.define('project', {
     'ProjectID': {
@@ -35,11 +45,14 @@ var Project = sequelize.define('project', {
 }
 )
 
+// add Project
+
 // sequelize.sync()
 //     .then(() => Project.create({
-//         ProjectID: 3,
-//         Nmae: '123214343',
-//         Status: 3
+//         ProjectID: 1,
+//         Name: 'zzc',
+//         Status: STATUS.SAVE,
+//         UserId : 1
 //     })) 
 
 module.exports = Project

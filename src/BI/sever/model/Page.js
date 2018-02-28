@@ -2,10 +2,20 @@ import Sequelize from 'sequelize'
 import sequelize from '../database'
 import Project from './Project'
 
+/*!
+ *
+ page 表的建立
+ *
+ OptionID PageID ProjectID Name Status
+ * 
+ zzc
+ */
+
 var Page = sequelize.define('page', {
     'PageID': {
         type: Sequelize.BIGINT(11),
-        primaryKey : true, 
+        primaryKey : true,
+        autoIncrement: true, 
         unique : true
     },
     'ProjectID': {
@@ -35,6 +45,9 @@ var Page = sequelize.define('page', {
 
 //sequelize.sync({ alter: true })
 
+
+
+//add Page
 
 //Project.hasOne(Page)
 //Page.belongsTo(Project)

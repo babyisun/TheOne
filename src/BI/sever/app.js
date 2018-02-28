@@ -14,6 +14,7 @@ const r = url => resolve(__dirname,url)
 const app = new Koa()
 const MIDDLEWARES = ['router']
 
+// 使用中间件
 const userMiddlewares = app => {
     return R.map(R.compose(
         R.map(i => i(app)),
@@ -24,13 +25,7 @@ const userMiddlewares = app => {
 
 async function start (){
 
-    app.use(statics(r('../../../dev/BI')))
-    app.use(views(r('../../../dev/BI'),{
-        extension: 'pug'
-    }))
     app.use(bodyParser())
-    //app.use(cors())
-
     await userMiddlewares(app)(MIDDLEWARES)
 
     app.listen(port, host)

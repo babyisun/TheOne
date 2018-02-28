@@ -22,7 +22,7 @@ async function insertprojectdata(){
     let aproject = await Project.create({
         ProjectID: 1,
         Name : 'zzc',
-        Status: 3,
+        Status: 1,
         UserId: 1,
     })
     console.log('success')

@@ -1,8 +1,18 @@
 import Sequelize from 'sequelize'
 import sequelize from '../database'
 import crypto from 'crypto'
+import { STATUS } from '../util/const'
 
 const md5 = crypto.createHash('md5')
+
+/*!
+ *
+ User 表的建立
+ *
+ UserID OpenID Mobile Password Role Status
+ * 
+ zzc
+ */
 
 var User = sequelize.define('user', {
     'UserID': {
@@ -46,27 +56,28 @@ var User = sequelize.define('user', {
 
 //sequelize.sync({ alter: true })
 
+//add User
+
 // sequelize.sync()
 //     .then(() => User.create({
-//         UserID : 1,
 //         OpenID : '213ss123',
 //         Mobile: '22343324',
-//         Password: '12213123ss',
+//         Password: '1',
 //         Role: 1,
-//         Status: 5
+//         Status: STATUS.SAVE
 //     })) 
 
 // async function insertdata(){
 //     let auser = await User.create({
+//         UserID : 1,
 //         OpenID : 'xxxxxxxxxxx',
 //         Mobile: '22343324',
-//         Password: '12213123ss',
+//         Password: '1',
 //         Role: 1,
 //         Status: 5
 //     })
 //     console.log(auser)
 // }
-
 // insertdata()
 
 module.exports = User

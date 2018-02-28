@@ -2,9 +2,19 @@ import Sequelize from 'sequelize'
 import sequelize from '../database'
 import Page from './Page'
 
+/*!
+ *
+ option 表的建立
+ *
+ OptionID PageID Type Key Value Status
+ * 
+ zzc
+ */
+
 var Option = sequelize.define('option', {
     'OptionID': {
         type: Sequelize.BIGINT(11),
+        autoIncrement: true, 
         primaryKey : true, 
         unique : true
     },
@@ -41,16 +51,19 @@ var Option = sequelize.define('option', {
     collate: 'utf8_general_ci'
 })
 
+
+// add option
+
 //sequelize.sync({ alter: true })
 
 // sequelize.sync()
 //     .then(() => Option.create({
-//         // OptionID: 'zzc',
-//         // OpenID : 'sadsa',
-//         // Mobile: '123214343',
-//         // Password: '123',
-//         // Role: 1,
-//         // Status: 3
+//         OptionID: 1,
+//         PageID : 1,
+//         Type: 'page',
+//         Key: '不知道',
+//         Value: {"name": "zhangzhichao"},
+//         Status: 1
 //     })) 
 
 module.exports = Option
