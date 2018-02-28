@@ -15,6 +15,29 @@ export default class Tools extends React.Component {
                         data-gs-height="2">
                         <div className="grid-stack-item-content">
                             <svg className="icon" aria-hidden="true">
+                                <use xlinkHref="#icon-funnel"></use>
+                            </svg>
+                        </div>
+                    </div>
+                    <div
+                        className="grid-stack-item icon-block"
+                        component="card"
+                        data-gs-width="2"
+                        data-gs-height="2">
+                        <div className="grid-stack-item-content">
+                            <svg className="icon" aria-hidden="true">
+                                <use xlinkHref="#icon-property"></use>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div className="bar-right-line">
+                    <div
+                        className="grid-stack-item icon-block"
+                        data-gs-width="1"
+                        data-gs-height="2">
+                        <div className="grid-stack-item-content">
+                            <svg className="icon" aria-hidden="true">
                                 <use xlinkHref="#icon-line-chart"></use>
                             </svg>
                         </div>
@@ -52,28 +75,7 @@ export default class Tools extends React.Component {
                         </div>
                     </div>
                 </div>
-                <div className="bar-right-line">
-                    <div
-                        className="grid-stack-item icon-block"
-                        data-gs-width="1"
-                        data-gs-height="2">
-                        <div className="grid-stack-item-content">
-                            <svg className="icon" aria-hidden="true">
-                                <use xlinkHref="#icon-funnel"></use>
-                            </svg>
-                        </div>
-                    </div>
-                    <div
-                        className="grid-stack-item icon-block"
-                        data-gs-width="2"
-                        data-gs-height="2">
-                        <div className="grid-stack-item-content">
-                            <svg className="icon" aria-hidden="true">
-                                <use xlinkHref="#icon-property"></use>
-                            </svg>
-                        </div>
-                    </div>
-                </div>
+
                 <div className="bar-right-line">
                     <div
                         className="grid-stack-item icon-block"
