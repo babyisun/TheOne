@@ -19,7 +19,7 @@ var Project = sequelize.define('project', {
         primaryKey : true, 
         unique : true
     },
-    'UserId': { 
+    'UserID': { 
         type: Sequelize.BIGINT(11), 
         field: 'UserID',
         references: {
@@ -44,15 +44,5 @@ var Project = sequelize.define('project', {
     collate: 'utf8_general_ci'
 }
 )
-
-// add Project
-
-// sequelize.sync()
-//     .then(() => Project.create({
-//         ProjectID: 1,
-//         Name: 'zzc',
-//         Status: STATUS.SAVE,
-//         UserId : 1
-//     })) 
 
 module.exports = Project

@@ -56,29 +56,4 @@ var User = sequelize.define('user', {
 
 //sequelize.sync({ alter: true })
 
-//add User
-
-// sequelize.sync()
-//     .then(() => User.create({
-//         UserID : 1,
-//         OpenID : '213ss123',
-//         Mobile: '22343324',
-//         Password: '1',
-//         Role: 1,
-//         Status: STATUS.SAVE
-//     })) 
-
-// async function insertdata(){
-//     let auser = await User.create({
-//         UserID : 1,
-//         OpenID : 'xxxxxxxxxxx',
-//         Mobile: '22343324',
-//         Password: '1',
-//         Role: 1,
-//         Status: 5
-//     })
-//     console.log(auser)
-// }
-// insertdata()
-
 module.exports = User

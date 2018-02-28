@@ -50,15 +50,9 @@ var Page = sequelize.define('page', {
 
 //add Page
 
-//Project.hasOne(Page)
-Page.belongsTo(Project, {foreignKey: 'ProjectID'})
+Project.hasMany(Page,{foreignKey: 'ProjectID', through: null })
+//Page.belongsTo(Project)
 
-// sequelize.sync()
-//     .then(() => Page.create({
-//         PageID: 'zzc',
-//         ProjectID : 21312,
-//         Name: '123214343',
-//         Status: 3
-//     })) 
+
 
 module.exports = Page

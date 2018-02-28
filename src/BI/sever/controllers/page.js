@@ -18,18 +18,13 @@ import { STATUS } from '../util/const'
 
         let page = await Page.findAll({
             'where' : {
-                'PageId' : pageId
+                'PageId' : pageId,
+                'Status' : 1
             }
         })
 
-        let projects = await Page.findAll({
-            include: [{
-                model: Project,
-                where: { ProjectID: Sequelize.col(page.ProjectID) }
-            }]
-        })
-
-        ctx.body = projects
+        ctx.body = {'code': CODE.SUCCESS,msg:"成功找到页面"}
+        ctx.body = page
     }catch (err) {
         console.log('查询页面出错',err)
     }

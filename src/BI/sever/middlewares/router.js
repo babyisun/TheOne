@@ -39,10 +39,9 @@ export const router = app => {
     /**
      *   Option add rename delete
      */
-
+    router.post('/getoption', Option.get)
     router.post('/addoption', Option.add)
-    // router.post('/renameoption', Option.rename)
-    // router.post('/deleteoption', Option.delete)
+    router.post('/deleteoption', Option.delete)
 
     app.use(router.routes())
     app.use(router.allowedMethods())

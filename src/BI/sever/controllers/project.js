@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize'
 import Project from '../model/Project'
 import Page from '../model/Page'
+import User from '../model/User'
 import { CODE } from '../util/const'
 import { STATUS } from '../util/const'
 
@@ -15,39 +16,21 @@ import { STATUS } from '../util/const'
 
     try{
         let uid  = ctx.request.body.uid
-        //let pids = []
+        let pids = []
 
         let project = await Project.findAll({
             'where' : {
-                'UserID' : uid
+                'UserID' : uid,
+                'Status' : 1
             },
             include: [{
                 model: Page,
-                where: { ProjectID: Sequelize.col(Project.ProjectID) }
             }]
         })
 
-        // for(let i = 0,len = project.length; i < len; i++){
-        //     let pid = project[i].ProjectID
-        //     pids.push(pid)
-        // }
-
-        // let pages = await Project.findAll({
-        //     include: [{
-        //         model: Page,
-        //         where: { ProjectID: Sequelize.col(project.ProjectID) }
-        //     }]
-        // })
         
-        // for(let i = 0,len = project.length; i < len; i++){
-        //     if(project[i].Status === -1){
-        //         let pin = project.indexOf(project[i])
-        //         //project.splice(1,1)
-        //         //delete project[i]
-        //     }
-        // }
-
-        ctx.body = pages
+        ctx.body = {'code': CODE.SUCCESS,msg:"成功找到项目"}
+        ctx.body = project
     }catch (err) {
         console.log('查询项目出错',err)
     }
@@ -60,7 +43,7 @@ exports.add = async ctx => {
         let uid  = ctx.request.body.uid
 
         let project = new Project({
-            UserId : uid,
+            UserID : uid,
             Name : name,
             Status : STATUS.SAVE
         })
