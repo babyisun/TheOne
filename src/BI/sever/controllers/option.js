@@ -30,7 +30,7 @@ exports.add = async ctx => {
     try {
         let pageId = ctx.request.body.pageId
         let value  = ctx.request.body.value
-        let key    = ctx.request.body.value
+        let key    = ctx.request.body.key
 
         let option = new Option({
             PageID : pageId,

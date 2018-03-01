@@ -109,7 +109,11 @@ export default class Sider extends React.Component {
             title: '项目',
             items: [
                 { label: '预览', iconClass: "icon-preview", action: () => { alert('clicked 1') } },
-                { label: '发布', iconClass: "icon-publish", action: () => { alert('clicked 1') } },
+                { label: '发布', iconClass: "icon-publish", action: () => { 
+                    AJAX.post("rproject", { uid: 1 , projectId: 1}, data => {
+                        console.log('成功发布')
+                    })
+                 } },
                 null,
                 { label: '添加页面', iconClass: "icon-add", action: (e) => { console.log(e.target.getAttribute("data")) } },
                 { label: '删除项目', iconClass: 'icon-delete', action: () => { alert('clicked 5') } },

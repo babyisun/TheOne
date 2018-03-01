@@ -3,6 +3,9 @@ import User from '../model/User'
 import Project from '../model/Project'
 import Page from '../model/Page'
 import Option from '../model/Option'
+import RProject from '../model/RProject'
+import RPage from '../model/RPage'
+import ROption from '../model/ROption'
 import { STATUS } from './const'
 
 // 插入数据
@@ -29,6 +32,7 @@ function insertdata(){
         .then(() => Option.create({
             OptionID: 1,
             PageID : 1,
+            ItemID : 1,
             Type : '123',
             Key : '456',
             Value : {"name": "zhang"},
