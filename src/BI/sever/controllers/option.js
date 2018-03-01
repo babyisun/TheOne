@@ -1,7 +1,6 @@
 
 import Option from '../model/Option'
-import { CODE } from '../util/const'
-import { STATUS,TYPE_ITEM } from '../util/const'
+import { CODE,STATUS,TYPE_ITEM } from '../util/const'
 
 /*!
  *

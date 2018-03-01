@@ -27,8 +27,7 @@ var Option = sequelize.define('option', {
         },
     },
     'ItemID': {
-        type: Sequelize.BIGINT(11),
-        allowNull: false
+        type: Sequelize.BIGINT(11)
     },
     'Type': {
         type: Sequelize.STRING(50),
