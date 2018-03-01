@@ -66,7 +66,7 @@ export default class Sider extends React.Component {
                 {
                     label: '发布', iconClass: "icon-publish", action: (e) => {
                         let uid = $.cookie.get("uid"), pid = e.target.getAttribute("data");
-                        AJAX.post("rproject", { uid: uid, projectId: pid }, data => {
+                        AJAX.post("release", { uid: uid, projectId: pid }, data => {
                             console.log('成功发布')
                         })
                     }

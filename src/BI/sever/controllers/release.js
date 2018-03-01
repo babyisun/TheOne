@@ -9,13 +9,12 @@ import { CODE } from '../util/const'
 
 /**
  * 
- *   project releae
+ *  releae 查询并储存到对应的表
  * 
  *   zzc
  */
 
-
-exports.rproject = async ctx => {
+exports.release = async ctx => {
 
     try{
 
@@ -43,8 +42,8 @@ exports.rproject = async ctx => {
             Name : project[0].Name,
             Version : VERSON
         })
-
         rproject.save()
+        
         for(let i = 0,len = project[0].pages.length;i < len; i++){
             let rpage = new RPage({
                 PageID : project[0].pages[i].PageID,
@@ -70,9 +69,8 @@ exports.rproject = async ctx => {
             }
         }
     
-        ctx.body = {'code': CODE.SUCCESS,msg:"发布成功"}
-        //ctx.body = project
+        ctx.body = {'code': CODE.SUCCESS,msg:"发布成功",data:project}
     }catch(err) {
-        console.log('发布项目出错', err)
+        console.log('发布出错', err)
     }
 }

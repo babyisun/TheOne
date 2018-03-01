@@ -1,6 +1,6 @@
 import Sequelize from 'sequelize'
 import sequelize from '../database'
-import Page from './Page'
+import RPage from './RPage'
 
 /*!
  *
@@ -18,10 +18,10 @@ var Option = sequelize.define('roption', {
     'PageID': {
         type: Sequelize.BIGINT(11),
         field: 'PageID',
-        references: {
-          model: 'Page',
-          key: 'PageID'
-        },
+        // references: {
+        //   model: 'RPage',
+        //   key: 'PageID'
+        // },
     },
     'ItemID': {
         type: Sequelize.BIGINT(11)
@@ -50,6 +50,8 @@ var Option = sequelize.define('roption', {
     charset: 'utf8',
     collate: 'utf8_general_ci'
 })
+
+//Option.hasMany(RPage,{foreignKey: 'PageID', through: null })
 
 
 // add option

@@ -5,6 +5,7 @@ import Project from '../controllers/project'
 import Page  from '../controllers/page'
 import Option from '../controllers/option'
 import Release from '../controllers/release'
+import RProject from '../controllers/rproject'
 
 /*!
  *
@@ -44,10 +45,11 @@ export const router = app => {
     router.post('/deleteoption', Option.delete)
 
     /**
-     *   RProject
+     *   Release
      */
 
-     router.post('/rproject', Release.rproject)
+    router.post('/release', Release.release)
+    router.post('/rproject', RProject.rproject)
 
     app.use(router.routes())
     app.use(router.allowedMethods())
