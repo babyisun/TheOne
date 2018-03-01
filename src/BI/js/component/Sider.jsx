@@ -1,83 +1,89 @@
 import React from "react";
-import {Link, Route,NavLink} from 'react-router-dom';
+import { Link, Route, NavLink } from 'react-router-dom';
 import "../plugin/scrollbar";
 import "../plugin/jquery.contextmenu";
 import "../../css/plugin/jquery.contextmenu.css";
 
 import ProjectModal from './ProjectModal.jsx'
-import {modalStore} from "../store/ModalStore";
+import { modalStore } from "../store/ModalStore";
 import { AJAX } from '../core/b'
 
 export default class Sider extends React.Component {
     constructor(props) {
         super(props);
-        this.menu = [
-            {
-                name: "首页",
-                class: "btn-hide",
-                url: "/"
-            },
-            {
-                name: "财务报表",
-                url: "/pad",
-                son: [
-                    {name: "收入", url: "/auto-complete"},
-                    {name: "支出", url: "/free-check-box"},
-                ]
-            },
-            {
-                name: "运营报表",
-                url: "/date",
-                son: [
-                    {name: "登录情况", url: "/date-range-picker", icon: "pc"},
-                    {name: "统计分析", url: "/date-chooser", icon: "pc"},
-                ]
-            },
-            {
-                name: "行政报表",
-                url: "/list",
-                son: [
-                    {name: "考勤", url: "/table", icon: "pc"}
-                ]
-            },
-            {
-                name: "其它",
-                url: "/others",
-                son: [
-                    {name: "行为分析", url: "/audio-play"},
-                    {name: "行业洞察", url: "/iframe-load"}
-                ]
-            },
-        ];
-        //this.state.menu=null;
+        this.state = {
+            menu: [
+                {
+                    Name: "首页",
+                    class: "btn-hide",
+                    ProjectID: "/"
+                },
+                {
+                    Name: "财务报表",
+                    ProjectID: "/pad",
+                    pages: [
+                        { Name: "收入", ProjectID: "/auto-complete" },
+                        { Name: "支出", ProjectID: "/free-check-box" },
+                    ]
+                },
+                {
+                    Name: "运营报表",
+                    ProjectID: "/date",
+                    pages: [
+                        { Name: "登录情况", ProjectID: "/date-range-picker", icon: "pc" },
+                        { Name: "统计分析", ProjectID: "/date-chooser", icon: "pc" },
+                    ]
+                },
+                {
+                    Name: "行政报表",
+                    ProjectID: "/list",
+                    pages: [
+                        { Name: "考勤", ProjectID: "/table", icon: "pc" }
+                    ]
+                },
+                {
+                    Name: "其它",
+                    ProjectID: "/others",
+                    pages: [
+                        { Name: "行为分析", ProjectID: "/audio-play" },
+                        { Name: "行业洞察", ProjectID: "/iframe-load" }
+                    ]
+                },
+            ]
+        }
+
+        // this.state = {
+        //     menu: []
+        // }
     }
 
-    // componentWillMount(){
-    //     let _this=this;
-    //     AJAX.post("getproject",{uid: 1}, data => {
-    //         console.log('111111111111111111',data)
-    //     });
-    // }
+    /* componentWillMount() {
+        let _this = this;
+        AJAX.post("getproject", { uid: 1 }, data => {
+            console.log(data.data)
+            _this.setState({ menu: data.data })
+        });
+    } */
 
     render() {
         return (
             <div className="sider">
                 {
-                    this.menu.map((item, i) => {
+                    this.state.menu.map((item, i) => {
                         return (
                             <div key={i}>
-                                <NavLink to={item.url}
-                                      data={item.url}
-                                      className={`btn-project primary ${item.son ? 'btn-toggle' : ''} ${item.class ? item.class : ''}`}
-                                      activeClassName="active"
-                                >{item.name}</NavLink>
+                                <NavLink to={'/' + item.ProjectID}
+                                    data={item.ProjectID}
+                                    className={`btn-project primary ${item.pages && item.pages.length ? 'btn-toggle' : ''} ${item.class ? item.class : ''}`}
+                                    activeClassName="active"
+                                >{item.Name}</NavLink>
                                 <div className={`toggle-list`}>
                                     {
-                                        item.son && item.son.map((r, j)=> {
+                                        item.pages && item.pages.map((r, j) => {
                                             return (
-                                                <NavLink data={r.url} className="btn-page" key={j} to={item.url+r.url} activeClassName="active">
+                                                <NavLink data={r.PageID} className="btn-page" key={j} to={'/' + item.ProjectID + '/' + r.PageID} activeClassName="active">
                                                     {r.icon ? <i className={`re-site-icon re-site-icon-${r.icon}`}></i> : ''}
-                                                    {r.name}
+                                                    {r.Name}
                                                 </NavLink>);
                                         })
                                     }
@@ -92,32 +98,32 @@ export default class Sider extends React.Component {
     }
 
     componentDidMount() {
-        let $sider=$('.sider');
+        let $sider = $('.sider');
         $sider.scrollbar();
         $sider.contextPopup({
             items: [
-              {label:'创建项目',iconClass :"icon-add",action:()=>{ modalStore.setProjectModal_Show(true); } },
+                { label: '创建项目', iconClass: "icon-add", action: () => { modalStore.setProjectModal_Show(true); } },
             ]
         });
         $('.btn-project').contextPopup({
-             title: '项目',
-             items: [
-                {label:'预览',iconClass :"icon-preview",action:()=>{ alert('clicked 1') } },
-                {label:'发布',iconClass :"icon-publish",action:()=>{ alert('clicked 1') } },
+            title: '项目',
+            items: [
+                { label: '预览', iconClass: "icon-preview", action: () => { alert('clicked 1') } },
+                { label: '发布', iconClass: "icon-publish", action: () => { alert('clicked 1') } },
                 null,
-                {label:'添加页面',iconClass :"icon-add",action:(e)=> { console.log(e.target.getAttribute("data")) } },
-                {label:'删除项目',iconClass:'icon-delete',action:()=> { alert('clicked 5') } },
-                {label:'重命名',iconClass:'icon-rename', action:()=> { alert('clicked 6') } }
-              ]
+                { label: '添加页面', iconClass: "icon-add", action: (e) => { console.log(e.target.getAttribute("data")) } },
+                { label: '删除项目', iconClass: 'icon-delete', action: () => { alert('clicked 5') } },
+                { label: '重命名', iconClass: 'icon-rename', action: () => { alert('clicked 6') } }
+            ]
         });
         $('.btn-page').contextPopup({
             title: '页面',
             items: [
-              {label:'预览',iconClass :"icon-preview",action:()=> { alert('clicked 1') } },
-              {label:'隐藏',iconClass:'icon-invisable',action:()=> { alert('clicked 1') } },
-              null,
-              {label:'删除',iconClass:'icon-delete',action:()=> { alert('clicked 5') } },
-              {label:'重命名',iconClass:'icon-rename', action:()=> { alert('clicked 6') } }
+                { label: '预览', iconClass: "icon-preview", action: () => { alert('clicked 1') } },
+                { label: '隐藏', iconClass: 'icon-invisable', action: () => { alert('clicked 1') } },
+                null,
+                { label: '删除', iconClass: 'icon-delete', action: () => { alert('clicked 5') } },
+                { label: '重命名', iconClass: 'icon-rename', action: () => { alert('clicked 6') } }
             ]
         });
     }
