@@ -6,7 +6,8 @@ import "../../css/plugin/jquery.contextmenu.css";
 
 import ProjectModal from './ProjectModal.jsx'
 import { modalStore } from "../store/ModalStore";
-import { AJAX } from '../core/b'
+import { AJAX } from '../core/b';
+import { CODE } from '../core/AJAX';
 
 export default class Sider extends React.Component {
     constructor(props) {
@@ -57,11 +58,36 @@ export default class Sider extends React.Component {
         // }
     }
 
+    contextPopup(){
+        $('.btn-project').contextPopup({
+            title: '项目',
+            items: [
+                { label: '预览', iconClass: "icon-preview", action: () => { alert('clicked 1') } },
+                { label: '发布', iconClass: "icon-publish", action: () => { alert('clicked 1') } },
+                null,
+                { label: '添加页面', iconClass: "icon-add", action: (e) => { console.log(e.target.getAttribute("data")) } },
+                { label: '删除项目', iconClass: 'icon-delete', action: () => { alert('clicked 5') } },
+                { label: '重命名', iconClass: 'icon-rename', action: () => { alert('clicked 6') } }
+            ]
+        });
+        $('.btn-page').contextPopup({
+            title: '页面',
+            items: [
+                { label: '预览', iconClass: "icon-preview", action: () => { alert('clicked 1') } },
+                { label: '隐藏', iconClass: 'icon-invisable', action: () => { alert('clicked 1') } },
+                null,
+                { label: '删除', iconClass: 'icon-delete', action: () => { alert('clicked 5') } },
+                { label: '重命名', iconClass: 'icon-rename', action: () => { alert('clicked 6') } }
+            ]
+        });
+    }
+
     /* componentWillMount() {
         let _this = this;
         AJAX.post("getproject", { uid: 1 }, data => {
-            console.log(data.data)
-            _this.setState({ menu: data.data })
+            if (data.code == CODE.SUCCESS) {
+            _this.setState({ menu: data.data },()=>_this.contextPopup());
+            }
         });
     } */
 
@@ -105,26 +131,6 @@ export default class Sider extends React.Component {
                 { label: '创建项目', iconClass: "icon-add", action: () => { modalStore.setProjectModal_Show(true); } },
             ]
         });
-        $('.btn-project').contextPopup({
-            title: '项目',
-            items: [
-                { label: '预览', iconClass: "icon-preview", action: () => { alert('clicked 1') } },
-                { label: '发布', iconClass: "icon-publish", action: () => { alert('clicked 1') } },
-                null,
-                { label: '添加页面', iconClass: "icon-add", action: (e) => { console.log(e.target.getAttribute("data")) } },
-                { label: '删除项目', iconClass: 'icon-delete', action: () => { alert('clicked 5') } },
-                { label: '重命名', iconClass: 'icon-rename', action: () => { alert('clicked 6') } }
-            ]
-        });
-        $('.btn-page').contextPopup({
-            title: '页面',
-            items: [
-                { label: '预览', iconClass: "icon-preview", action: () => { alert('clicked 1') } },
-                { label: '隐藏', iconClass: 'icon-invisable', action: () => { alert('clicked 1') } },
-                null,
-                { label: '删除', iconClass: 'icon-delete', action: () => { alert('clicked 5') } },
-                { label: '重命名', iconClass: 'icon-rename', action: () => { alert('clicked 6') } }
-            ]
-        });
+        this.contextPopup();
     }
 }
