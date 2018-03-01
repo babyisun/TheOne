@@ -18,10 +18,10 @@ var Page = sequelize.define('rpage', {
     'ProjectID': {
         type: Sequelize.BIGINT(11),
         field: 'ProjectID',
-        references: {
-          model: 'Project',
-          key: 'ProjectID'
-        },
+        // references: {
+        //   model: 'RProject',
+        //   key: 'ProjectID'
+        // },
     },
     'Name': {
         type: Sequelize.STRING(50),
@@ -46,7 +46,7 @@ var Page = sequelize.define('rpage', {
 
 //add Page
 
-RProject.hasMany(Page,{foreignKey: 'ProjectID', through: null })
+//RProject.hasMany(Page,{foreignKey: 'ProjectID', through: null })
 //Page.belongsTo(Project)
 
 
