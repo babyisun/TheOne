@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from "../../resources/base/card.jsx";
 
 export default class Tools extends React.Component {
     constructor(props) {
@@ -28,6 +29,9 @@ export default class Tools extends React.Component {
                             <svg className="icon" aria-hidden="true">
                                 <use xlinkHref="#icon-property"></use>
                             </svg>
+                            <div className="panel">
+                                <Card/>
+                            </div>
                         </div>
                     </div>
                 </div>
