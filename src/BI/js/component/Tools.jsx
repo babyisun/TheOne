@@ -22,7 +22,7 @@ export default class Tools extends React.Component {
                     <div
                         className="grid-stack-item icon-block"
                         component="card"
-                        data-gs-width="2"
+                        data-gs-width="12"
                         data-gs-height="2">
                         <div className="grid-stack-item-content">
                             <svg className="icon" aria-hidden="true">

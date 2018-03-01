@@ -8,25 +8,28 @@ import Components from "../core/components";
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
-        this.components = [
-            {
-                name: "Card"
-            }, {
-                name: "Line"
-            }, {
-                name: "Pie"
-            }
-        ];
+        this.state = {
+            components: [
+                {
+                    name: "Card"
+                }, {
+                    name: "Line"
+                }, {
+                    name: "Pie"
+                }
+            ]
+        }
     }
     render() {
         return (
             <div id="grid" className="grid-stack grid-stack-12">
                 <h3>一张报表，从心开始</h3>
                 {this
+                    .state
                     .components
                     .map((item, i) => {
                         //console.log(item + index);
-                        return <div key={i}>{Components.getComponent(item.name, {})}</div>
+                        return <div key={i}>{Components.getComponent(item.name, item.options)}</div>
                     })
 }
                 {/* <Chart
@@ -66,7 +69,7 @@ export default class Home extends React.Component {
     }
 
     componentDidMount() {
-        console.info("componentDidMount:DOM已经加载完毕");
+        let _this = this;
         var options = {
             width: 12,
             float: false,
@@ -77,7 +80,11 @@ export default class Home extends React.Component {
             float: true
         }, options))
             .on('change', function (event, items) {
-                //console.log(items);
+                console.log(items);
+                let components = _this.state.components;
+                components.add({name: "Card"});
+                _this.setState({components: components});
+
                 var serializedData = _.map($('.grid-stack > .grid-stack-item:visible'), function (el) {
                     el = $(el);
                     var node = el.data('_gridstack_node');
@@ -88,7 +95,7 @@ export default class Home extends React.Component {
             .on('gsresizestop', function (event, ui) {
                 var grid = this;
                 var element = event.target;
-                console.log(element);
+                //console.log(element);
             });
     }
 }
