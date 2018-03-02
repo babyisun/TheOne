@@ -23,7 +23,7 @@ exports.release = async ctx => {
 
         let VERSON = +new Date
 
-        let project = await Project.findAll({
+        let project = await Project.findOne({
             'where' : {
                 'UserID' : userId,
                 'ProjectID' : projectId,
@@ -37,32 +37,32 @@ exports.release = async ctx => {
 
 
         let rproject = new RProject({
-            UserID : project[0].UserID,
-            ProjectID : project[0].ProjectID,
-            Name : project[0].Name,
+            UserID : project.UserID,
+            ProjectID : project.ProjectID,
+            Name : project.Name,
             Version : VERSON
         })
         rproject.save()
         
-        for(let i = 0,len = project[0].pages.length;i < len; i++){
+        for(let i = 0,len = project.pages.length;i < len; i++){
             let rpage = new RPage({
-                PageID : project[0].pages[i].PageID,
-                ProjectID : project[0].pages[i].ProjectID,
-                Name : project[0].pages[i].Name,
+                PageID : project.pages[i].PageID,
+                ProjectID : project.pages[i].ProjectID,
+                Name : project.pages[i].Name,
                 Version : VERSON
             })
             rpage.save()
         }
 
-        for(let i = 0,ilen = project[0].pages.length;i < ilen; i++){
-            for(let j = 0,jlen = project[0].pages[i].options.length;j < jlen;j++){
+        for(let i = 0,ilen = project.pages.length;i < ilen; i++){
+            for(let j = 0,jlen = project.pages[i].options.length;j < jlen;j++){
                 let roption = new ROption({
-                    OptionID : project[0].pages[i].options[j].OptionID,
-                    PageID   : project[0].pages[i].options[j].PageID,
-                    ItemID   : project[0].pages[i].options[j].ItemID,
-                    Value    : project[0].pages[i].options[j].Value,
-                    Type     : project[0].pages[i].options[j].Type,
-                    Key      : project[0].pages[i].options[j].Key,
+                    OptionID : project.pages[i].options[j].OptionID,
+                    PageID   : project.pages[i].options[j].PageID,
+                    ItemID   : project.pages[i].options[j].ItemID,
+                    Value    : project.pages[i].options[j].Value,
+                    Type     : project.pages[i].options[j].Type,
+                    Key      : project.pages[i].options[j].Key,
                     Version : VERSON
                 })
                 roption.save()
@@ -70,6 +70,7 @@ exports.release = async ctx => {
         }
     
         ctx.body = {'code': CODE.SUCCESS,msg:"发布成功",data:project}
+        //ctx.body = project
     }catch(err) {
         console.log('发布出错', err)
     }
