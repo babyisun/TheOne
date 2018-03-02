@@ -19,23 +19,25 @@ function insertdata(){
             Status: STATUS.SAVE
         }))
         .then(() => Project.create({
-            Name : 'zzc',
+            Name : '运营项目',
             Status: STATUS.SAVE,
             UserID: 1,
         }))
         .then(() => Page.create({
-            PageID: 1,
             ProjectID: 1,
-            Name: 'zzc',
+            Name: '收入',
+            Status: STATUS.SAVE
+        })).then(() => Page.create({
+            ProjectID: 1,
+            Name: '支出',
             Status: STATUS.SAVE
         }))
         .then(() => Option.create({
-            OptionID: 1,
             PageID : 1,
             ItemID : 1,
             Type : '123',
-            Key : '456',
-            Value : {"name": "zhang"},
+            Key : 'PAGE',
+            Value : {"url": "abc.com/api"},
             Status : STATUS.SAVE
         }))
     console.log('success')

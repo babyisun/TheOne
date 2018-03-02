@@ -1,5 +1,7 @@
 import React from 'react';
 import Card from "../../resources/base/card.jsx";
+import Chart from "./Chart.jsx";
+
 
 export default class Tools extends React.Component {
     constructor(props) {
@@ -18,6 +20,40 @@ export default class Tools extends React.Component {
                             <svg className="icon" aria-hidden="true">
                                 <use xlinkHref="#icon-funnel"></use>
                             </svg>
+                            <div className="panel">
+                            <Chart
+                    option={{
+                    xAxis: {
+                        type: 'category',
+                        data: [
+                            'Mon',
+                            'Tue',
+                            'Wed',
+                            'Thu',
+                            'Fri',
+                            'Sat',
+                            'Sun'
+                        ]
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            data: [
+                                820,
+                                932,
+                                901,
+                                934,
+                                1290,
+                                1330,
+                                1320
+                            ],
+                            type: 'line'
+                        }
+                    ]
+                }}/>
+                            </div>
                         </div>
                     </div>
                     <div

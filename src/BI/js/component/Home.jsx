@@ -34,8 +34,7 @@ export default class Home extends React.Component {
                     .map((item, i) => {
                         //console.log(item + index);
                         return <div key={i}>{Components.getComponent(item.name, item.options)}</div>
-                    }) */
-}
+                    }) */}
                 {/* <Chart
                     option={{
                     xAxis: {
@@ -86,6 +85,39 @@ export default class Home extends React.Component {
         grid.on('change', function (e, items) {
             console.log(items[0].el[0].getAttribute("component"));
             console.log(e.target);
+            let myChart = echarts.init(e.target);
+            let data={
+                xAxis: {
+                    type: 'category',
+                    data: [
+                        'Mon',
+                        'Tue',
+                        'Wed',
+                        'Thu',
+                        'Fri',
+                        'Sat',
+                        'Sun'
+                    ]
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [
+                    {
+                        data: [
+                            820,
+                            932,
+                            901,
+                            934,
+                            1290,
+                            1330,
+                            1320
+                        ],
+                        type: 'line'
+                    }
+                ]
+            };
+            myChart.setOption(data);
             // let components = _this.state.components; components.add({name: "Card"});
             // _this.setState({components: components});
 
@@ -97,7 +129,13 @@ export default class Home extends React.Component {
             let $card = $('.card');
             $card.contextPopup({
                 items: [
-                    { label: '数据源', iconClass: "icon-data", action: () => { alert(1); } },
+                    {
+                        label: '数据源',
+                        iconClass: "icon-data",
+                        action: () => {
+                            alert(1);
+                        }
+                    }
                 ]
             });
             //console.log(serializedData);
