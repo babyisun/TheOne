@@ -7,6 +7,7 @@ import Chart from "./Chart.jsx";
 import "../../css/component/main.scss";
 import Components from "../core/components";
 import Card from "../../resources/base/card.jsx";
+import {Gird} from "../core/util";
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -84,9 +85,42 @@ export default class Home extends React.Component {
         }, options));
         grid.on('change', function (e, items) {
             console.log(items[0].el[0].getAttribute("component"));
-            console.log(e.target);
-            let myChart = echarts.init(e.target);
-            let data={
+            /* console.log(e.target);
+            console.log(items);
+            */
+            // let components = _this.state.components; components.add({name: "Card"});
+            // _this.setState({components: components});
+
+            var serializedData = _.map($('.grid-stack > .grid-stack-item:visible'), function (el) {
+                el = $(el);
+                var node = el.data('_gridstack_node');
+                return node; //{x: node.x, y: node.y, width: node.width, height: node.height};
+            }, this);
+            let $card = $('.card');
+            $card.contextPopup({
+                items: [
+                    {
+                        label: '数据源',
+                        iconClass: "icon-data",
+                        action: () => {
+                            alert(1);
+                        }
+                    }
+                ]
+            });
+            //console.log(serializedData);
+        }).on('gsresizestop', (e, item) => {
+            var grid = this;
+            var element = e.target;
+            let _item = Gird.getResizedItem(item);
+            let _thisChart = echarts.getInstanceByDom(_item);
+            _thisChart.resize();
+        }).on('added', (e, item) => {
+            // console.log(e.target); console.log(item);
+            let _item = Gird.getAddedItem(item);
+            //return;
+            let myChart = echarts.init(_item);
+            let data = {
                 xAxis: {
                     type: 'category',
                     data: [
@@ -118,33 +152,7 @@ export default class Home extends React.Component {
                 ]
             };
             myChart.setOption(data);
-            // let components = _this.state.components; components.add({name: "Card"});
-            // _this.setState({components: components});
-
-            var serializedData = _.map($('.grid-stack > .grid-stack-item:visible'), function (el) {
-                el = $(el);
-                var node = el.data('_gridstack_node');
-                return node; //{x: node.x, y: node.y, width: node.width, height: node.height};
-            }, this);
-            let $card = $('.card');
-            $card.contextPopup({
-                items: [
-                    {
-                        label: '数据源',
-                        iconClass: "icon-data",
-                        action: () => {
-                            alert(1);
-                        }
-                    }
-                ]
-            });
-            //console.log(serializedData);
-        })
-            .on('gsresizestop', function (e, ui) {
-                var grid = this;
-                var element = e.target;
-                //console.log(element);
-            });
+        });
 
         // _this.grid = grid.data("gridstack"); _this.grid.addWidget('<div><div
         // class="grid-stack-item-content">123abc</div></div>',0, 0, Math.floor(1 + 3 *

@@ -1,31 +1,45 @@
 /**
  * Created by shiyang on 2016/11/3.
  */
-//工具类
-// 图表工具
+//工具类 图表工具
 export class Util {
     /*数字动画*/
     static fnNumberAnimate(type) {
         let _this = this,
             _type = type.replace(/Num/gi, '_num'),
             eleNum = '#' + _type,
-            startNumber = $(eleNum).html().replace(/,/g, ''),
+            startNumber = $(eleNum)
+                .html()
+                .replace(/,/g, ''),
             endNumber = _this.state[type];
-        $(eleNum).changeNumber({
-            startNumber: startNumber,
-            endNumber: endNumber
-        });
+        $(eleNum).changeNumber({startNumber: startNumber, endNumber: endNumber});
     }
 }
 
+// gird工具
+export class Gird {
+    static getAddedItem(item) {
+        if (item && item[0] && item[0].el && item[0].el[0]) {
+            return $(item[0].el[0]).find(".grid-stack-item-content")[0];
+        }
+        return null;
+    }
+    static getResizedItem(item) {
+        if (item) {
+            return $(item).find(".grid-stack-item-content")[0];
+        }
+        return null;
+    }
+}
 
 // 图表工具
 export class Chart {
     static setDataZoomEnd(itemCount, num) {
-        return itemCount > num ? 100 / (itemCount / (num - 1)) : 100;
+        return itemCount > num
+            ? 100 / (itemCount / (num - 1))
+            : 100;
     }
 }
-
 
 export class Customer {
     constructor(user) {
@@ -48,9 +62,11 @@ export class Customer {
                         return true;
                     }
                 }
-            }
-            else {
-                return this.user.auth_item.contains(ids);
+            } else {
+                return this
+                    .user
+                    .auth_item
+                    .contains(ids);
             }
         }
         return false;
@@ -58,19 +74,20 @@ export class Customer {
 
     requireAuth(auth) {
         let _this = this;
-        if (location.hash)
+        if (location.hash) 
             return location.hash.replace("#", "");
         for (let i = 0, o = Object.keys(auth), len = o.length; i < len; i++) {
-            if (_this.hasOne(+o[i])) {
+            if (_this.hasOne(+ o[i])) {
                 let url = auth[o[i]];
                 if (url && url.indexOf("http") == 0) {
-                    setTimeout(()=> {
+                    setTimeout(() => {
                         window.location.href = url;
                     }, 0);
                     return "/Loading";
-                } else return url;
+                } else 
+                    return url;
+                }
             }
-        }
         return "/NoAccess";
     }
 }
