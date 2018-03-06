@@ -39,12 +39,11 @@ export default class Card extends React.Component {
         }
     }
     render() {
-        return (<div className="row">
+        return (<div className="card row">
             {
-                //console.log(1);
                 this.state.data.map((item, i) => {
                     return (
-                        <div key={i} className="col-md-3" data-gs-height="2">
+                        <div key={i} className="col-md-3">
                             <div className="title">
                                 <h3>{item.title}</h3>
                                 <span className="btn bg-primary">{item.unit}</span>
@@ -59,5 +58,14 @@ export default class Card extends React.Component {
             }
         </div>
         )
+    }
+
+    componentDidMount() {
+        // let $card = $('.card');
+        // $card.contextPopup({
+        //     items: [
+        //         { label: '数据源', iconClass: "icon-data", action: () => { alert(1); } },
+        //     ]
+        // });
     }
 }

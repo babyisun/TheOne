@@ -4,6 +4,8 @@ import User from '../controllers/user'
 import Project from '../controllers/project'
 import Page  from '../controllers/page'
 import Option from '../controllers/option'
+import Release from '../controllers/release'
+import RProject from '../controllers/rproject'
 
 /*!
  *
@@ -11,7 +13,6 @@ import Option from '../controllers/option'
  *
  zzc
  */
-
 export const router = app => {
     const router = new Router()
     /**
@@ -42,6 +43,13 @@ export const router = app => {
     router.post('/getoption', Option.get)
     router.post('/addoption', Option.add)
     router.post('/deleteoption', Option.delete)
+
+    /**
+     *   Release
+     */
+
+    router.post('/release', Release.release)
+    router.post('/rproject', RProject.rproject)
 
     app.use(router.routes())
     app.use(router.allowedMethods())

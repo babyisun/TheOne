@@ -58,12 +58,19 @@ export default class Sider extends React.Component {
         // }
     }
 
-    contextPopup(){
+    contextPopup() {
         $('.btn-project').contextPopup({
             title: '项目',
             items: [
                 { label: '预览', iconClass: "icon-preview", action: () => { alert('clicked 1') } },
-                { label: '发布', iconClass: "icon-publish", action: () => { alert('clicked 1') } },
+                {
+                    label: '发布', iconClass: "icon-publish", action: (e) => {
+                        let uid = $.cookie.get("uid"), pid = e.target.getAttribute("data");
+                        AJAX.post("release", { uid: uid, projectId: pid }, data => {
+                            console.log('成功发布')
+                        })
+                    }
+                },
                 null,
                 { label: '添加页面', iconClass: "icon-add", action: (e) => { console.log(e.target.getAttribute("data")) } },
                 { label: '删除项目', iconClass: 'icon-delete', action: () => { alert('clicked 5') } },
@@ -82,14 +89,14 @@ export default class Sider extends React.Component {
         });
     }
 
-    /* componentWillMount() {
+    componentWillMount() {
         let _this = this;
         AJAX.post("getproject", { uid: 1 }, data => {
             if (data.code == CODE.SUCCESS) {
             _this.setState({ menu: data.data },()=>_this.contextPopup());
             }
         });
-    } */
+    }
 
     render() {
         return (

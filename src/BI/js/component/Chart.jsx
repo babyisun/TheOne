@@ -19,7 +19,10 @@ export default class Chart extends React.Component {
         this.chartID = "chart_" + ~~ (Math.random() * 100000);
     }
 
-    static defaultProps = {};
+    static defaultProps = {
+        width: "200px",
+        height: "200px"
+    };
 
     render() {
         const divStyle = {
@@ -29,7 +32,8 @@ export default class Chart extends React.Component {
         return (
             <div
                 id={this.chartID}
-                className="chart grid-stack-item icon-block ui-draggable ui-resizable ui-resizable-autohide"
+                style={divStyle}
+                className="chart"
                 data-gs-width="6"
                 data-gs-height="4"
                 data-gs-x="0"
@@ -91,9 +95,19 @@ export default class Chart extends React.Component {
                 .getChart(_this.myChart);
         }
 
-        // setInterval(()=>{
-        //     _this.myChart.resize();
-        // },1000)
+       /*  setInterval(() => {
+            _this
+                .myChart
+                .resize();
+            console.log(123);
+        }, 1000) */
+
+        /* setTimeout(()=>{
+            
+            _this
+            .myChart.setOption(data);
+            console.log(_this.myChart);
+        },3000); */
     }
 
     componentWillReceiveProps(props) {

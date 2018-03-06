@@ -1,30 +1,27 @@
 import Sequelize from 'sequelize'
 import sequelize from '../database'
-import Page from './Page'
+import RPage from './RPage'
 
 /*!
  *
- option 表的建立
+ roption 表的建立
  *
- OptionID PageID Type Key Value Status
+ OptionID PageID ItemID Type Key Value Version
  * 
  zzc
  */
 
-var Option = sequelize.define('option', {
+var Option = sequelize.define('roption', {
     'OptionID': {
-        type: Sequelize.BIGINT(11),
-        autoIncrement: true, 
-        primaryKey : true, 
-        unique : true
+        type: Sequelize.BIGINT(11)
     },
     'PageID': {
         type: Sequelize.BIGINT(11),
         field: 'PageID',
-        references: {
-          model: 'Page',
-          key: 'PageID'
-        },
+        // references: {
+        //   model: 'RPage',
+        //   key: 'PageID'
+        // },
     },
     'ItemID': {
         type: Sequelize.BIGINT(11)
@@ -41,20 +38,20 @@ var Option = sequelize.define('option', {
         type: Sequelize.JSON,
         allowNull: false
     },
-    'Status': {
-        type: Sequelize.INTEGER(50)
+    'Version': {
+        type: Sequelize.STRING(50),
     }
 },
 {
     timestamps: true,
     underscored: true,
     freezeTableName: true,
-    tableName: 'option',
+    tableName: 'roption',
     charset: 'utf8',
     collate: 'utf8_general_ci'
 })
 
-Page.hasMany(Option,{foreignKey: 'PageID', through: null })
+//Option.hasMany(RPage,{foreignKey: 'PageID', through: null })
 
 
 // add option
