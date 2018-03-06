@@ -6,7 +6,7 @@ import "../plugin/gotop";
 import Chart from "./Chart.jsx";
 import "../../css/component/main.scss";
 import Components from "../core/components";
-import Card from "../../resources/base/card.jsx";
+import Card from "../../resources/base/Card.jsx";
 import {Gird} from "../core/util";
 
 export default class Home extends React.Component {

@@ -20,6 +20,7 @@ import Home from "./component/Home.jsx";
 import Tools from "./component/Tools.jsx";
 import Explorer from "./component/Explorer.jsx";
 import Pad from "./component/Pad.jsx";
+import Demo from "../resources/Demo.jsx";
 
 //import "./plugin/lodash.min.js";
 import "./plugin/gridstack.js";
@@ -56,6 +57,7 @@ ReactDOM.render((
             <App>
                 <Route exact path="/" component={Home}/>
                 <Route path="/pad/:id" component={Pad}/>
+                <Route exact path="/Demo" component={Demo}/>
             </App>
         </Switch>
     </HashRouter>

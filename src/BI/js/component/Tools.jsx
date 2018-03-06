@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from "../../resources/base/card.jsx";
+import Card from "../../resources/base/Card.jsx";
 import Chart from "./Chart.jsx";
 
 
