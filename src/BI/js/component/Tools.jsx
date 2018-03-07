@@ -2,7 +2,6 @@ import React from 'react';
 import Card from "../../resources/base/Card.jsx";
 import Chart from "./Chart.jsx";
 
-
 export default class Tools extends React.Component {
     constructor(props) {
         super(props);
@@ -21,38 +20,38 @@ export default class Tools extends React.Component {
                                 <use xlinkHref="#icon-funnel"></use>
                             </svg>
                             <div className="panel">
-                            <Chart
-                    option={{
-                    xAxis: {
-                        type: 'category',
-                        data: [
-                            'Mon',
-                            'Tue',
-                            'Wed',
-                            'Thu',
-                            'Fri',
-                            'Sat',
-                            'Sun'
-                        ]
-                    },
-                    yAxis: {
-                        type: 'value'
-                    },
-                    series: [
-                        {
-                            data: [
-                                820,
-                                932,
-                                901,
-                                934,
-                                1290,
-                                1330,
-                                1320
-                            ],
-                            type: 'line'
-                        }
-                    ]
-                }}/>
+                                <Chart
+                                    option={{
+                                    xAxis: {
+                                        type: 'category',
+                                        data: [
+                                            'Mon',
+                                            'Tue',
+                                            'Wed',
+                                            'Thu',
+                                            'Fri',
+                                            'Sat',
+                                            'Sun'
+                                        ]
+                                    },
+                                    yAxis: {
+                                        type: 'value'
+                                    },
+                                    series: [
+                                        {
+                                            data: [
+                                                820,
+                                                932,
+                                                901,
+                                                934,
+                                                1290,
+                                                1330,
+                                                1320
+                                            ],
+                                            type: 'line'
+                                        }
+                                    ]
+                                }}/>
                             </div>
                         </div>
                     </div>
@@ -260,11 +259,9 @@ export default class Tools extends React.Component {
                         </div>
                     </div>
                 </div>
-                {/* DELETE
-             <div className="col-md-9">
-                <div className="trash">
-                </div>
-            </div> */}
+                {/* <div className="col-md-9">
+                    <div className="trash"></div>
+                </div> */}
             </div>
         )
     }

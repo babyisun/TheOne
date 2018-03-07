@@ -28,7 +28,7 @@ export default class Home extends React.Component {
     render() {
         return (
             <div id="grid" className="grid grid-stack grid-stack-12">
-                <h3>一张报表，从心开始</h3>
+                <h3 className="tip">一张报表，从心开始</h3>
                 {/* this
                     .state
                     .components

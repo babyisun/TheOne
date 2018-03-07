@@ -1,13 +1,17 @@
 .grid {
     //background: lightcyan;
     border: #ccc dotted 1px;
-    min-height: 300px;
+    //min-height: 500px;
+    // min-height: calc(100vh - 110px);
+    // height: calc(100vh - 110px);
+    .tip {
+        text-align: center;
+    }
     .grid-stack-item-content {
         background-color: #9caabc;
         float: left;
         font-size: 29px;
-        margin: auto 5px;
-        //background: none;
+        margin: auto 5px; //background: none;
         svg.icon {
             display: none;
         }
@@ -26,8 +30,7 @@
             display: block;
         } */
         .panel {
-            display: none;
-            //visibility: hidden;
+            display: none; //visibility: hidden;
         }
     }
 }
