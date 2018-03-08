@@ -1,7 +1,13 @@
 import React from 'react';
 import Card from "../../resources/base/Card.jsx";
 
-export default class Components {
+export const COMPONENTS = {
+    DATE: "date",
+    CARD: "card",
+    LINE: "line"
+}
+
+export class Components {
     // constructor(props) {     super(props); }
 
     static getComponent(name, options) {

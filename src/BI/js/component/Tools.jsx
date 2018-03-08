@@ -36,7 +36,7 @@ export default class Tools extends React.Component {
                                 <use xlinkHref="#icon-property"></use>
                             </svg>
                             <div className="panel">
-                                <Card/>
+                                {/* <Card/> */}
                             </div>
                         </div>
                     </div>
@@ -54,11 +54,12 @@ export default class Tools extends React.Component {
                     </div>
                     <div
                         className="grid-stack-item icon-block"
+                        component="date"
                         data-gs-width="2"
                         data-gs-height="2">
                         <div className="grid-stack-item-content">
                             <svg className="icon" aria-hidden="true">
-                                <use xlinkHref="#icon-bar-chart"></use>
+                                <use xlinkHref="#icon-datepicker"></use>
                             </svg>
                         </div>
                     </div>
@@ -191,7 +192,7 @@ export default class Tools extends React.Component {
                         data-gs-height="2">
                         <div className="grid-stack-item-content">
                             <svg className="icon" aria-hidden="true">
-                                <use xlinkHref="#icon-datepicker"></use>
+                                <use xlinkHref="#icon-bar-chart"></use>
                             </svg>
                         </div>
                     </div>

@@ -5,8 +5,10 @@ import {conponentsStore} from "../store/ConponentsStore";
 import "../plugin/gotop";
 import Chart from "./Chart.jsx";
 import "../../css/component/main.scss";
-import Components from "../core/components";
-import Card from "../../resources/base/Card.jsx";
+import {Components, COMPONENTS} from "../core/components";
+// import Card from "../../resources/base/Card.jsx";
+import Card from "../../resources/base/card.js";
+// import "../../resources/base/card.scss";
 import {Grid} from "../core/util";
 
 export default class Home extends React.Component {
@@ -61,12 +63,9 @@ export default class Home extends React.Component {
         })
 
         grid.on('change', function (e, items) {
-            // console.log(items[0].el[0].getAttribute("component"));
-            // console.log(e.target);
-            // console.log(items);
-
-            // let components = _this.state.components; components.add({name: "Card"});
-            // _this.setState({components: components});
+            // console.log(items[0].el[0].getAttribute("component")); console.log(e.target);
+            // console.log(items); let components = _this.state.components;
+            // components.add({name: "Card"}); _this.setState({components: components});
 
             var serializedData = _.map($('.grid-stack > .grid-stack-item:visible'), function (el) {
                 el = $(el);
@@ -87,49 +86,56 @@ export default class Home extends React.Component {
             });
             //console.log(serializedData);
         }).on('gsresizestop', (e, item) => {
-            var grid = this;
-            var element = e.target;
+            // var grid = this; var element = e.target;
             let _item = Grid.getResizedItem(item);
             let _thisChart = echarts.getInstanceByDom(_item);
-            _thisChart.resize();
-        }).on('added', (e, item) => {
+            if (_thisChart) 
+                _thisChart.resize();
+            }
+        ).on('added', (e, item) => {
             console.log(item);
-            console.log(Grid.getComponent(item));
+            let component = Grid.getComponent(item);
             let _item = Grid.getAddedItem(item);
             //return;
-            let myChart = echarts.init(_item);
-            let data = {
-                xAxis: {
-                    type: 'category',
-                    data: [
-                        'Mon',
-                        'Tue',
-                        'Wed',
-                        'Thu',
-                        'Fri',
-                        'Sat',
-                        'Sun'
-                    ]
-                },
-                yAxis: {
-                    type: 'value'
-                },
-                series: [
-                    {
+            if (component == COMPONENTS.LINE) {
+                let myChart = echarts.init(_item);
+                let data = {
+                    xAxis: {
+                        type: 'category',
                         data: [
-                            820,
-                            932,
-                            901,
-                            934,
-                            1290,
-                            1330,
-                            1320
-                        ],
-                        type: 'line'
-                    }
-                ]
-            };
-            myChart.setOption(data);
+                            'Mon',
+                            'Tue',
+                            'Wed',
+                            'Thu',
+                            'Fri',
+                            'Sat',
+                            'Sun'
+                        ]
+                    },
+                    yAxis: {
+                        type: 'value'
+                    },
+                    series: [
+                        {
+                            data: [
+                                820,
+                                932,
+                                901,
+                                934,
+                                1290,
+                                1330,
+                                1320
+                            ],
+                            type: 'line'
+                        }
+                    ]
+                };
+                myChart.setOption(data);
+            } else if (component == COMPONENTS.CARD) {
+                let _card = new Card();
+                console.log(_card)
+                $(_item).html(_card.html);
+            }
         });
 
         // _this.grid = grid.data("gridstack");
