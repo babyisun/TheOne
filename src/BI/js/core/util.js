@@ -17,7 +17,7 @@ export class Util {
 }
 
 // gird工具
-export class Gird {
+export class Grid {
     static getAddedItem(item) {
         if (item && item[0] && item[0].el && item[0].el[0]) {
             return $(item[0].el[0]).find(".grid-stack-item-content")[0];
@@ -27,6 +27,12 @@ export class Gird {
     static getResizedItem(item) {
         if (item) {
             return $(item).find(".grid-stack-item-content")[0];
+        }
+        return null;
+    }
+    static getComponent(item) {
+        if (item && item[0] && item[0].el && item[0].el[0]) {
+            return item[0].el[0].getAttribute("component");
         }
         return null;
     }

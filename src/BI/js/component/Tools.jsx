@@ -2,7 +2,6 @@ import React from 'react';
 import Card from "../../resources/base/Card.jsx";
 import Chart from "./Chart.jsx";
 
-
 export default class Tools extends React.Component {
     constructor(props) {
         super(props);
@@ -14,46 +13,17 @@ export default class Tools extends React.Component {
                 <div className="bar-right-line">
                     <div
                         className="grid-stack-item icon-block"
+                        component="line"
                         data-gs-width="1"
                         data-gs-height="2">
+                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                         <div className="grid-stack-item-content">
                             <svg className="icon" aria-hidden="true">
                                 <use xlinkHref="#icon-funnel"></use>
                             </svg>
-                            <div className="panel">
-                            <Chart
-                    option={{
-                    xAxis: {
-                        type: 'category',
-                        data: [
-                            'Mon',
-                            'Tue',
-                            'Wed',
-                            'Thu',
-                            'Fri',
-                            'Sat',
-                            'Sun'
-                        ]
-                    },
-                    yAxis: {
-                        type: 'value'
-                    },
-                    series: [
-                        {
-                            data: [
-                                820,
-                                932,
-                                901,
-                                934,
-                                1290,
-                                1330,
-                                1320
-                            ],
-                            type: 'line'
-                        }
-                    ]
-                }}/>
-                            </div>
+                            <div className="panel"></div>
                         </div>
                     </div>
                     <div
@@ -74,8 +44,8 @@ export default class Tools extends React.Component {
                 <div className="bar-right-line">
                     <div
                         className="grid-stack-item icon-block"
-                        data-gs-width="1"
-                        data-gs-height="2">
+                        data-gs-width="4"
+                        data-gs-height="4">
                         <div className="grid-stack-item-content">
                             <svg className="icon" aria-hidden="true">
                                 <use xlinkHref="#icon-line-chart"></use>
@@ -260,11 +230,9 @@ export default class Tools extends React.Component {
                         </div>
                     </div>
                 </div>
-                {/* DELETE
-             <div className="col-md-9">
-                <div className="trash">
-                </div>
-            </div> */}
+                {/* <div className="col-md-9">
+                    <div className="trash"></div>
+                </div> */}
             </div>
         )
     }

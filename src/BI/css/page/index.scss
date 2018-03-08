@@ -8,7 +8,9 @@
 @import "../component/chart.scss";
 /* Style
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
-
+html{
+  overflow-x: hidden;
+}
 .re-site-icon {
   line-height: 1;
 }

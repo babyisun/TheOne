@@ -1,15 +1,36 @@
 .grid {
     //background: lightcyan;
-    border: #ccc dotted 1px;
-    min-height: 300px;
-    .grid-stack-item-content {
-        background-color: #9caabc;
-        float: left;
-        font-size: 29px;
-        margin: auto 5px;
-        //background: none;
-        svg.icon {
+    border: #ccc dotted 1px; //min-height: 500px;
+    // min-height: calc(100vh - 110px);
+    // height: calc(100vh - 110px);
+    .tip {
+        text-align: center;
+    }
+    .grid-stack-item {
+        .close {
+            //padding: 4px 4px 0 0;
+            //padding: 6px;
+            right: 10px;
+            width: 20px;
+            height: 20px;
             display: none;
+            position: absolute;
+            z-index: 90;
+            &.close:active,&.close:focus{
+                outline: none;
+            }
+        }
+        &:hover .close {
+            display: block;
+        }
+        .grid-stack-item-content {
+            background-color: #9caabc;
+            float: left;
+            font-size: 29px;
+            margin: auto 5px; //background: none;
+            svg.icon {
+                display: none;
+            }
         }
     }
 }
@@ -20,14 +41,16 @@
 
 .bar-right-line .grid-stack-item {
     display: inline-block;
+    .close {
+        display: none;
+    }
     .grid-stack-item-content {
         background: none;
         /* svg.icon {
             display: block;
         } */
         .panel {
-            display: none;
-            //visibility: hidden;
+            display: none; //visibility: hidden;
         }
     }
 }
