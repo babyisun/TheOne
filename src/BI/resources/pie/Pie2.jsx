@@ -32,7 +32,7 @@ export default class Pie2 extends React.Component {
             backgroundColor: colors[5],
             tooltip: {
                 trigger: 'item',
-                formatter: "{b}",
+                formatter: "{b} {d}%",
             },
             legend: {
                 bottom:10,
