@@ -1,9 +1,9 @@
 import React from 'react';
-import Pie from "./pie/Pie.jsx";
-import Pie2 from "./pie2/Pie.jsx";
-import Pie3 from "./pie3/Pie.jsx";
-import Line from "./line/Line.jsx";
-import Line2 from "./line2/Line.jsx";
+import Pie from "./pie/Pie1.jsx";
+import Pie2 from "./pie/Pie2.jsx";
+import Pie3 from "./pie/Pie3.jsx";
+import Line from "./line/Line1.jsx";
+import Line2 from "./line/Line2.jsx";
 import Bar from "./bar/Bar.jsx";
 
 export default class Demo extends React.Component {

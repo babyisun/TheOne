@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Pie extends React.Component {
+export default class Pie2 extends React.Component {
     constructor(props) {
         super(props);
 
