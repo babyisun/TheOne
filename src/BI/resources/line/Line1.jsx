@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Line extends React.Component {
+export default class Line1 extends React.Component {
     constructor(props) {
         super(props);
 
