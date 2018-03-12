@@ -7,8 +7,11 @@ export default class Pie extends React.Component {
     }
     render() {
         return (
+            <div>
+                
             <div ref="chart" className="chart">
                 pie
+            </div>
             </div>
         )
     }
