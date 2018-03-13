@@ -17,7 +17,8 @@ export default class Pie2 extends React.Component {
     componentDidMount() {
         console.log(this.refs.chart);
         let myChart = echarts.init(this.refs.chart);
-        let colors = ['#4fd165', '#5553ce', '#f1392f', '#fb8a02', '#2da6ff', '#fff', '#b1b1b1'];
+        let colors = ['#fb8a02', '#4fd165', '#f1392f', '#438edb', '#2da6ff', '#fff', '#b1b1b1'];
+        let i=0;
         let option = {
             title: {
                 text: 'Age Users',
@@ -32,10 +33,11 @@ export default class Pie2 extends React.Component {
             backgroundColor: colors[5],
             tooltip: {
                 trigger: 'item',
-                formatter: "{b} {d}%",
+                formatter: "{b}",
+
             },
             legend: {
-                bottom:10,
+                bottom: 10,
                 left: 'center',
                 width: '100%',
                 itemWidth: 10,
@@ -48,7 +50,7 @@ export default class Pie2 extends React.Component {
                     { name: '46-60 age', icon: 'circle' }
                 ],
                 formatter: function (name) {
-                    return name + '   40%'
+                    return name + '   ' + parseFloat((option.series[0].data[i++].value) / sum() * 100).toFixed(2) + '%'
                 },
             },
             series: [
@@ -58,22 +60,28 @@ export default class Pie2 extends React.Component {
                     selectedMode: 'single',
                     radius: ['30%', '65%'],
                     data: [
-                        { value: 857, name: '25-34 age' },
-                        { value: 150, name: '45 age' },
-                        { value: 149, name: '35-44 age' },
                         { value: 119, name: '18-24 age' },
+                        { value: 857, name: '25-34 age', },
+                        { value: 149, name: '35-44 age' },
+                        { value: 150, name: '45 age' },
                         { value: 80, name: '46-60 age' }
                     ],
                     label: {
                         normal: {
                             show: false,
-                            position: 'inner',
-                            formatter: '{d}%'
                         }
                     },
                 }
             ]
         };
+        function sum() {
+            var x = 0;
+            var shu = option.series[0].data;
+            for (var i = 0; i < shu.length; ++i) {
+                x += shu[i].value;
+            }
+            return x;
+        }
         myChart.setOption(option);
     }
 }
