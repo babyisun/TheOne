@@ -18,50 +18,56 @@ export default class Pie1 extends React.Component {
     componentDidMount() {
         console.log(this.refs.chart);
         let myChart = echarts.init(this.refs.chart);
+        let colors = ['#1c82c6', '#54ccb5', '#85d6c7', '#a9d6f9', '#1bb293', '#fff', '#333', '#ebebeb', '#999'];
         let option = {
-            backgroundColor: '#fff',
+            color: colors,
+            backgroundColor: colors[5],
             title: {
                 text: '双臂扣用户数据圆饼图',
                 padding: 20,
-                borderColor: '#ebebeb',
+                borderColor: colors[7],
                 borderWidth: 1,
                 textStyle: {
-                    color: '#333',
+                    color: colors[6],
                     fontWeight: 'normal',
-                    fontSize: 16
+                    fontSize: 16,
+
                 }
             },
             legend: {
                 orient: 'vertical',
-                itemWidth: 30,
-                itemHeight: 30,
+                itemWidth: 20,
+                itemHeight: 20,
                 itemSize: '',
-                top: '40%',
+                top: '45%',
                 right: 20,
                 formatter: '{name}',
                 textStyle: {
-                    color: '#999',
-                    fontSize: 14
+                    color: colors[8],
+                    fontSize: 14,
                 },
                 data: [
                     {
                         name: '某某区县2016年数据综合',
-                        icon: 'roundRect'
+                        icon: 'roundRect',
                     }, {
                         name: '某某区县2015年数据',
-                        icon: 'roundRect'
-                    }, {
+                        icon: 'roundRect',
+                    },
+                    {
                         name: '我也不知道这里写什么',
-                        icon: 'roundRect'
-                    }, {
+                        icon: 'roundRect',
+                    },
+                    {
                         name: '反正就描述一下模块吧',
-                        icon: 'roundRect'
-                    }, {
+                        icon: 'roundRect',
+                    },
+                    {
                         name: '就这个样式',
-                        icon: 'roundRect'
+                        icon: 'roundRect',
                     }
                 ],
-                calculable: true
+                calculable: true,
             },
             series: [
                 {
@@ -70,23 +76,19 @@ export default class Pie1 extends React.Component {
                     top: 10,
                     name: '数据展示',
                     avoidLabelOverlap: false,
-                    radius: [
-                        '40%', '60%'
-                    ],
-                    center: [
-                        '35%', '60%'
-                    ],
+                    radius: ['40%', '60%'],
+                    center: ['35%', '60%'],
                     label: {
                         normal: {
                             show: false,
-                            position: 'center'
+                            position: 'center',
                         },
                         emphasis: {
                             show: true,
                             fontSize: 18,
                             color: '#333',
                             fontWeight: 'bold'
-                        }
+                        },
                     },
 
                     labelLine: {
@@ -99,34 +101,37 @@ export default class Pie1 extends React.Component {
                             value: 356,
                             name: '某某区县2016年数据综合',
                             itemStyle: {
-                                color: '#1c82c6'
+                                color: colors[0]
                             }
-                        }, {
+                        },
+                        {
                             value: 310,
                             name: '某某区县2015年数据',
                             itemStyle: {
-                                color: '#54ccb5'
+                                color: colors[1]
                             }
-                        }, {
+                        },
+                        {
                             value: 234,
                             name: '我也不知道这里写什么',
                             itemStyle: {
-                                color: '#85d6c7'
+                                color: colors[2]
                             }
-                        }, {
+                        },
+                        {
                             value: 135,
                             name: '反正就描述一下模块吧',
                             itemStyle: {
-                                color: '#a9d6f9'
+                                color: colors[3]
                             }
-                        }, {
+                        },
+                        {
                             value: 235,
                             name: '就这个样式',
                             itemStyle: {
-                                color: '#1bb293'
+                                color: colors[4]
                             }
-
-                        }
+                        },
                     ]
                 }
             ],
@@ -136,7 +141,7 @@ export default class Pie1 extends React.Component {
             },
             itemStyle: {
                 borderWidth: 3,
-                borderColor: '#fff'
+                borderColor: colors[5]
             }
         };
         myChart.setOption(option);
