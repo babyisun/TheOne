@@ -11,6 +11,7 @@ import Card from "../../resources/base/card.js";
 // import "../../resources/base/card.scss";
 import {Grid} from "../core/util";
 
+// @observer
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
@@ -79,12 +80,16 @@ export default class Home extends React.Component {
                         label: '数据源',
                         iconClass: "icon-data",
                         action: () => {
-                            alert(1);
+                            conponentsStore.updateItem("aaa");
+                            let _card = new Card();
+                            console.log(_card)
+                            //$(_item).html(_card.html);
+                            console.log(conponentsStore);
                         }
                     }
                 ]
             });
-            //console.log(serializedData);
+            console.log(serializedData);
         }).on('gsresizestop', (e, item) => {
             // var grid = this; var element = e.target;
             let _item = Grid.getResizedItem(item);
@@ -132,8 +137,14 @@ export default class Home extends React.Component {
                 };
                 myChart.setOption(data);
             } else if (component == COMPONENTS.CARD) {
-                let _card = new Card();
-                console.log(_card)
+                let _card = new Card({
+                    title: Math.random(),
+                    unit: "单位：元",
+                    number: "2",
+                    subtitle: "净值",
+                    rate: "3%"
+                });
+                //console.log(_card)
                 $(_item).html(_card.html);
             }
         });

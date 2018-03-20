@@ -11,6 +11,18 @@ class ConponentsStore {
     @action add(value) {
         //this.components.add();
     }
+
+    @observable item = {
+        title: "test",
+        unit: "单位：元",
+        number: "3,333,222",
+        subtitle: "净值",
+        rate: "88%"
+    };
+
+    @action updateItem(value) {
+        this.item.title=value;
+    }
 }
 
 export const conponentsStore = new ConponentsStore();
