@@ -65,7 +65,6 @@ export default class Home extends React.Component {
 
         grid.on('change', function (e, items) {
             // console.log(items[0].el[0].getAttribute("component")); console.log(e.target);
-            // console.log(items); let components = _this.state.components;
             // components.add({name: "Card"}); _this.setState({components: components});
 
             var serializedData = _.map($('.grid-stack > .grid-stack-item:visible'), function (el) {
