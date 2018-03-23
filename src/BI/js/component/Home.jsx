@@ -100,7 +100,7 @@ export default class Home extends React.Component {
             console.log(item);
             let component = Grid.getComponent(item);
             let _item = Grid.getAddedItem(item);
-            //return;
+
             if (component == COMPONENTS.LINE) {
                 let myChart = echarts.init(_item);
                 let data = {
