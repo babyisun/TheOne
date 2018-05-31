@@ -7,12 +7,7 @@ import Option from '../controllers/option'
 import Release from '../controllers/release'
 import RProject from '../controllers/rproject'
 
-/*!
- *
- louter api
- *
- zzc
- */
+/*router集合*/
 export const router = app => {
     const router = new Router()
     /**
